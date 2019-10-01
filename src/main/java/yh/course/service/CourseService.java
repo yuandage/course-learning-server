@@ -56,10 +56,24 @@ public class CourseService {
 
     public Page<Course> pageQuery(Course course, int page, int size) {
         Pageable pageable = PageRequest.of(page - 1, size);
-
         return courseDao.findByName("%"+course.getName()+"%", pageable);
 
     }
 
 
+    public Page<Course> findAllByPage(int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return courseDao.findAll(pageable);
+    }
+
+
+    public Page<Course> findByParentIdPage(String parentId, int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return courseDao.findByParentId(parentId,pageable);
+    }
+
+    public Page<Course> findBySubjectIdPage(Integer subjectId, int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return courseDao.findBySubjectId(subjectId,pageable);
+    }
 }

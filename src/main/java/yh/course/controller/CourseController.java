@@ -41,6 +41,24 @@ public class CourseController {
         return new Result(true, StatusCode.SUCCESS, "查询成功", courseService.findBySubjectId(subjectId));
     }
 
+    @RequestMapping(value = "/{page}/{size}", method = RequestMethod.POST)
+    public Result findAllByPage(@PathVariable int page, @PathVariable int size) {
+        Page<Course> pageData = courseService.findAllByPage(page, size);
+        return new Result(true, StatusCode.SUCCESS, "查询成功", new PageResult<Course>(pageData.getTotalElements(), pageData.getContent()));
+    }
+
+    @RequestMapping(value = "/parentId/{parentId}/{page}/{size}", method = RequestMethod.POST)
+    public Result findByParentIdPage(@PathVariable String parentId,@PathVariable int page, @PathVariable int size) {
+        Page<Course> pageData = courseService.findByParentIdPage(parentId,page, size);
+        return new Result(true, StatusCode.SUCCESS, "查询成功", new PageResult<Course>(pageData.getTotalElements(), pageData.getContent()));
+    }
+
+    @RequestMapping(value = "/subject/{subjectId}/{page}/{size}", method = RequestMethod.GET)
+    public Result findBySubjectIdPage(@PathVariable Integer subjectId,@PathVariable int page, @PathVariable int size) {
+        Page<Course> pageData = courseService.findBySubjectIdPage(subjectId,page, size);
+        return new Result(true, StatusCode.SUCCESS, "查询成功", new PageResult<Course>(pageData.getTotalElements(), pageData.getContent()));
+    }
+
 
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Course course) {

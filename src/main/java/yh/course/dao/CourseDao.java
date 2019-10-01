@@ -16,7 +16,11 @@ public interface CourseDao extends JpaRepository<Course, String>, JpaSpecificati
     Page<Course> findByName(String name, Pageable pageable);
 
     List<Course> findByParentId(String parentId);
+    Page<Course> findByParentId(String parentId,Pageable pageable);
 
     @Query(value = "SELECT id,name,summary,catalog,parent_id,create_date,update_date FROM course WHERE parent_id in ( SELECT id FROM subject where parent_id=:id)", nativeQuery = true)
     List<Course> findBySubjectId(@Param("id") Integer subjectId);
+
+    @Query(value = "SELECT id,name,summary,catalog,parent_id,create_date,update_date FROM course WHERE parent_id in ( SELECT id FROM subject where parent_id=:id)", nativeQuery = true)
+    Page<Course> findBySubjectId(@Param("id") Integer subjectId,Pageable pageable);
 }
