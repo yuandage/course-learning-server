@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/course_learning?characterEncoding=utf-8
+    username: yh
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
+jwt:
+  config:
+    key: yhyh #盐的长度在3位以上
+    ttl: 3600000  #令牌过期时间1个小时
