@@ -66,4 +66,8 @@ public class UserService {
         }
         userDao.deleteById(id);
     }
+
+    public User findById(String userId) {
+        return userDao.findById(userId).get();
+    }
 }

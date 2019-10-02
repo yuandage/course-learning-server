@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public Result exception(Exception e){
-        e.printStackTrace();
+        //e.printStackTrace(); //追踪错误信息
         System.out.println(e.getMessage());
         if (e.getMessage().equals("权限不足!")||e.getMessage().equals("令牌不正确!")){
             return new Result(false, StatusCode.ACCESS_ERROR,e.getMessage());
