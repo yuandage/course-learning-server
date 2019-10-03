@@ -22,6 +22,12 @@ public class UserController {
     JwtUtil jwtUtil;
 
     //用户信息查询
+    @RequestMapping(method = RequestMethod.POST)
+    public Result findByUsername(@RequestBody User user){
+        return new Result(true, StatusCode.SUCCESS, "查询成功",userService.findByUsername(user.getUsername()));
+    }
+
+    //用户信息查询
     @RequestMapping(value = "/{userId}",method = RequestMethod.GET)
     public Result findById(@PathVariable String userId){
         return new Result(true, StatusCode.SUCCESS, "查询成功",userService.findById(userId));

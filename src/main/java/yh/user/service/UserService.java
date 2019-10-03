@@ -70,4 +70,8 @@ public class UserService {
     public User findById(String userId) {
         return userDao.findById(userId).get();
     }
+
+    public User findByUsername(String username) {
+        return userDao.findByUsername(username);
+    }
 }
