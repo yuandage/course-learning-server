@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import yh.course.entity.Subject;
 
 public interface SubjectDao extends JpaRepository<Subject, String>, JpaSpecificationExecutor<Subject> {
-
+    int countByParentIdIsNull();
 }
 

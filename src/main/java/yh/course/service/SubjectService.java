@@ -33,6 +33,7 @@ public class SubjectService {
         //获取指定分类的对象
         //Subject result = list.stream().filter(subject -> subject.getId() == 1|| subject.getId() == 2).findFirst().orElse(null);
 
-        return list.subList(0,5);
+        //获取一级学科分类的数量subjectDao.countByParentIdIsNull()
+        return list.subList(0,subjectDao.countByParentIdIsNull());//一级学科分类
     }
 }
