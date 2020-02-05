@@ -76,4 +76,9 @@ public class CourseService {
         Pageable pageable = PageRequest.of(page - 1, size);
         return courseDao.findBySubjectId(subjectId,pageable);
     }
+
+    public List<Course> findPopularCourse() {
+        return courseDao.findByPopularEquals("1");
+    }
+
 }

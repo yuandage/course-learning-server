@@ -89,4 +89,11 @@ public class CourseController {
         Page<Course> pageData = courseService.pageQuery(course, page, size);
         return new Result(true, StatusCode.SUCCESS, "查询成功", new PageResult<Course>(pageData.getTotalElements(), pageData.getContent()));
     }
+
+    //查询热门课程
+    @RequestMapping(value = "/popular",method = RequestMethod.GET)
+    public Result findPopularCourse() {
+        return new Result(true, StatusCode.SUCCESS, "查询成功",courseService.findPopularCourse());
+    }
+
 }

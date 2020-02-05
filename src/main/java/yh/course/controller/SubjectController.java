@@ -21,4 +21,9 @@ public class SubjectController {
     public Result findSubjectType(){
         return new Result(true, StatusCode.SUCCESS,"查询成功",subjectService.findSubjectType());
     }
+
+    @RequestMapping(value = "/child",method = RequestMethod.GET)
+    public Result findChildSubject(){
+        return new Result(true, StatusCode.SUCCESS,"查询成功",subjectService.findChildSubject());
+    }
 }

@@ -15,6 +15,8 @@ public class Course {
     private String summary;//简介
     private String catalog;//目录
     private String parentId;//父节点
+    private String popular;//热门课程
+    private String url;//课程封面
     private Date createDate;//创建时间
     private Date updateDate;//更新时间
 
@@ -56,6 +58,22 @@ public class Course {
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public String getPopular() {
+        return popular;
+    }
+
+    public void setPopular(String popular) {
+        this.popular = popular;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Date getCreateDate() {

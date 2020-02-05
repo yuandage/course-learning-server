@@ -36,4 +36,8 @@ public class SubjectService {
         //获取一级学科分类的数量subjectDao.countByParentIdIsNull()
         return list.subList(0,subjectDao.countByParentIdIsNull());//一级学科分类
     }
+
+    public List<Subject> findChildSubject() {
+        return subjectDao.findByParentIdNotNull();
+    }
 }
