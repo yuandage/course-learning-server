@@ -11,6 +11,8 @@ import yh.course.entity.Course;
 import java.util.List;
 
 public interface CourseDao extends JpaRepository<Course, String>, JpaSpecificationExecutor<Course> {
+    List<Course> findByNameLike(String name);
+
     List<Course> findByName(String name);
 
     Page<Course> findByName(String name, Pageable pageable);
@@ -28,5 +30,5 @@ public interface CourseDao extends JpaRepository<Course, String>, JpaSpecificati
             countQuery = "SELECT count(*) FROM course WHERE parent_id in ( SELECT id FROM subject where parent_id=:subjectId )",nativeQuery = true)
     Page<Course> findBySubjectId(@Param("subjectId") Integer subjectId,Pageable pageable);
 
-    List<Course> findByPopularEquals(String popular);
+    List<Course> findByPopular(String popular);
 }

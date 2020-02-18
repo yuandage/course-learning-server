@@ -13,10 +13,10 @@ public class Course {
     private String id;//ID
     private String name;//课程名
     private String summary;//简介
-    private String catalog;//目录
+    private String description;//描述
     private String parentId;//父节点
     private String popular;//热门课程
-    private String url;//课程封面
+    private String coverUrl;//课程封面
     private Date createDate;//创建时间
     private Date updateDate;//更新时间
 
@@ -44,12 +44,12 @@ public class Course {
         this.summary = summary;
     }
 
-    public String getCatalog() {
-        return catalog;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCatalog(String catalog) {
-        this.catalog = catalog;
+    public void setDescription(String catalog) {
+        this.description = catalog;
     }
 
     public String getParentId() {
@@ -68,12 +68,12 @@ public class Course {
         this.popular = popular;
     }
 
-    public String getUrl() {
-        return url;
+    public String getCoverUrl() {
+        return coverUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setCoverUrl(String url) {
+        this.coverUrl = url;
     }
 
     public Date getCreateDate() {

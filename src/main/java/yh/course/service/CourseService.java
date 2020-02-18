@@ -51,12 +51,12 @@ public class CourseService {
 
     //第二种方法
     public List<Course> findSearch(Course course) {
-        return courseDao.findByName("%"+course.getName()+"%");
+        return courseDao.findByName(course.getName());
     }
 
     public Page<Course> pageQuery(Course course, int page, int size) {
         Pageable pageable = PageRequest.of(page - 1, size);
-        return courseDao.findByName("%"+course.getName()+"%", pageable);
+        return courseDao.findByName(course.getName(), pageable);
 
     }
 
@@ -78,7 +78,10 @@ public class CourseService {
     }
 
     public List<Course> findPopularCourse() {
-        return courseDao.findByPopularEquals("1");
+        return courseDao.findByPopular("1");
     }
 
+    public List<Course> findByNameLike(String name) {
+        return courseDao.findByNameLike("%"+name+"%");
+    }
 }

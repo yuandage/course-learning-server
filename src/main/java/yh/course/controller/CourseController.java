@@ -78,13 +78,19 @@ public class CourseController {
         return new Result(true, StatusCode.SUCCESS, "删除成功");
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @RequestMapping(value = "/name", method = RequestMethod.GET)
+    public Result findByNameLike(String name) {
+        List<Course> list = courseService.findByNameLike(name);
+        return new Result(true, StatusCode.SUCCESS, "查询成功", list);
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
     public Result findSearch(@RequestBody Course course) {
         List<Course> list = courseService.findSearch(course);
         return new Result(true, StatusCode.SUCCESS, "查询成功", list);
     }
 
-    @RequestMapping(value = "/search/{page}/{size}", method = RequestMethod.POST)
+    @RequestMapping(value = "/search/{page}/{size}", method = RequestMethod.GET)
     public Result pageQuery(@RequestBody Course course, @PathVariable int page, @PathVariable int size) {
         Page<Course> pageData = courseService.pageQuery(course, page, size);
         return new Result(true, StatusCode.SUCCESS, "查询成功", new PageResult<Course>(pageData.getTotalElements(), pageData.getContent()));
