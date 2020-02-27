@@ -29,16 +29,16 @@ public class UserService {
 
     public void add(User user) {
         User user1 = userDao.findByUsername(user.getUsername());
-        if (user1!=null){
+        if (user1 != null) {
             throw new RuntimeException("用户名已存在!");
         }
-        if(!user.getRole().equals("1")&&!user.getRole().equals("2")){
+        if (!user.getRole().equals("1") && !user.getRole().equals("2")) {
             throw new RuntimeException("用户身份错误!");
         }
-        if (user.getRole().equals("2")){
+        if (user.getRole().equals("2")) {
             user.setRole("待审核");//教师注册,需管理员审核
         }
-        user.setId(idWorker.nextId()+"");
+        user.setId(idWorker.nextId() + "");
         user.setPassword(encoder.encode(user.getPassword()));
         user.setFollowCount(0);//关注数
         user.setFansCount(0);//粉丝数
@@ -61,7 +61,7 @@ public class UserService {
 
     public void deleteById(String id) {
         String token = (String) request.getAttribute("claims_admin");//管理员角色
-        if(token==null||"".equals(token)){
+        if (token == null || "".equals(token)) {
             throw new RuntimeException("权限不足!");
         }
         userDao.deleteById(id);
@@ -72,6 +72,8 @@ public class UserService {
     }
 
     public User findByUsername(String username) {
-        return userDao.findByUsername(username);
+        User user = userDao.findByUsername(username);
+        user.setPassword("");
+        return user;
     }
 }
