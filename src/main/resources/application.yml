@@ -9,6 +9,10 @@ spring:
   jpa:
     database: mysql
     show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB      # Single file max size
+      max-request-size: 50MB   # All files max size
 jwt:
   config:
     key: yhyh #盐的长度在3位以上

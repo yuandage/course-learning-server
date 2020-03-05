@@ -72,8 +72,6 @@ public class UserService {
     }
 
     public User findByUsername(String username) {
-        User user = userDao.findByUsername(username);
-        user.setPassword("");
-        return user;
+        return userDao.findByUsername(username);
     }
 }

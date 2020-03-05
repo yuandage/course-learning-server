@@ -22,15 +22,19 @@ public class UserController {
     JwtUtil jwtUtil;
 
     //用户信息查询
-    @RequestMapping(method = RequestMethod.POST)
-    public Result findByUsername(@RequestBody User user){
-        return new Result(true, StatusCode.SUCCESS, "查询成功",userService.findByUsername(user.getUsername()));
+    @RequestMapping(method = RequestMethod.GET)
+    public Result findByUsername(@RequestParam String username){
+        User user=userService.findByUsername(username);
+        user.setPassword("");
+        return new Result(true, StatusCode.SUCCESS, "查询成功",user);
     }
 
     //用户信息查询
     @RequestMapping(value = "/{userId}",method = RequestMethod.GET)
     public Result findById(@PathVariable String userId){
-        return new Result(true, StatusCode.SUCCESS, "查询成功",userService.findById(userId));
+        User user=userService.findById(userId);
+        user.setPassword("");
+        return new Result(true, StatusCode.SUCCESS, "查询成功",user);
     }
 
     //用户注册
@@ -47,12 +51,13 @@ public class UserController {
         if (user == null) {
             return new Result(false, StatusCode.LOGIN_ERROR, "登录失败");
         }
+        user.setPassword("");
         //前后端通信,使用JWT
         String token = jwtUtil.createJWT(user.getId(), user.getUsername(), user.getRole());
         Map<String,Object> map=new HashMap<>();
         map.put("token",token);
         map.put("role","user");
-        map.put("username",user.getUsername());
+        map.put("user",user);
         return new Result(true, StatusCode.SUCCESS, "登录成功",map);
     }
 

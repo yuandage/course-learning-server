@@ -31,8 +31,7 @@ public class UserFavoriteController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody UserFavorite userFavorite) {
-        userFavoriteCrudService.save(userFavorite);
-        return new Result(true, StatusCode.SUCCESS, "添加成功");
+        return new Result(true, StatusCode.SUCCESS, "添加成功",userFavoriteCrudService.save(userFavorite));
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -41,9 +40,9 @@ public class UserFavoriteController {
         return new Result(true, StatusCode.SUCCESS, "更新成功");
     }
 
-    @RequestMapping(value = "/{userFavoriteId}", method = RequestMethod.DELETE)
-    public Result deleteById(@PathVariable String userFavoriteId) {
-        userFavoriteCrudService.deleteById(userFavoriteId);
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public Result deleteById(@PathVariable String id) {
+        userFavoriteCrudService.deleteById(id);
         return new Result(true, StatusCode.SUCCESS, "删除成功");
     }
 

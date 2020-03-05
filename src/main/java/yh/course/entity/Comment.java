@@ -11,6 +11,7 @@ public class Comment {
 
     @Id
     private String id;//id
+    private String userId;//课程id
     private String courseId;//课程id
     private String sectionId;//章节id
     private String sectionTitle;//章节标题
@@ -29,6 +30,13 @@ public class Comment {
         this.id = id;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getCourseId() {
         return courseId;

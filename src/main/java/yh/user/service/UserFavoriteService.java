@@ -25,9 +25,11 @@ public class UserFavoriteService {
         return userFavoriteDao.findById(id).get();
     }
 
-    public void save(UserFavorite userFavorite) {
-        userFavorite.setId(idWorker.nextId()+"");//设置分布式ID
+    public String save(UserFavorite userFavorite) {
+        String id=idWorker.nextId()+"";
+        userFavorite.setId(id);//设置分布式ID
         userFavoriteDao.save(userFavorite);
+        return id;
     }
 
     public void update(UserFavorite userFavorite) {

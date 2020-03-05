@@ -27,6 +27,7 @@ public class ResourceService {
 
     public void save(Resource resource) {
         resource.setId(idWorker.nextId()+"");//设置分布式ID
+        resource.setResUrl("http://localhost:9000/resource/download/"+resource.getId());
         resourceDao.save(resource);
     }
 

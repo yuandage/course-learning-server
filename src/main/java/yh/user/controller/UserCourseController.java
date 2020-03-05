@@ -41,9 +41,9 @@ public class UserCourseController {
         return new Result(true, StatusCode.SUCCESS, "更新成功");
     }
 
-    @RequestMapping(value = "/{userCourseId}", method = RequestMethod.DELETE)
-    public Result deleteById(@PathVariable String userCourseId) {
-        userCourseService.deleteById(userCourseId);
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public Result deleteById(@PathVariable String id) {
+        userCourseService.deleteById(id);
         return new Result(true, StatusCode.SUCCESS, "删除成功");
     }
     

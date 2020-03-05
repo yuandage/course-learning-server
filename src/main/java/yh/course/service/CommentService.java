@@ -38,4 +38,7 @@ public class CommentService {
         commentDao.deleteById(id);
     }
 
+    public List<Comment> findByCourseId(String id) {
+        return commentDao.findByCourseId(id);
+    }
 }

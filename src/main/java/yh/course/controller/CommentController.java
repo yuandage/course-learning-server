@@ -25,6 +25,11 @@ public class CommentController {
         return new Result(true, StatusCode.SUCCESS, "查询成功", commentService.findById(id));
     }
 
+    @RequestMapping(value = "/courseId/{id}", method = RequestMethod.GET)
+    public Result findByCourseId(@PathVariable String id) {
+        return new Result(true, StatusCode.SUCCESS, "查询成功", commentService.findByCourseId(id));
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody Comment comment) {
         commentService.save(comment);
