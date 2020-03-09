@@ -1,7 +1,6 @@
 package yh;
 
 import yh.util.IdWorker;
-import yh.util.JwtUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +21,5 @@ public class CourseLearningApplication {
     public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
-    @Bean
-    public JwtUtil jwtUtil(){
-        return new JwtUtil();
-    }
+
 }

@@ -3,7 +3,6 @@ package yh.user.service;
 import yh.user.dao.UserDao;
 import yh.user.entity.User;
 import yh.util.IdWorker;
-import yh.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,8 +21,6 @@ public class UserService {
     @Autowired
     BCryptPasswordEncoder encoder;
     @Autowired
-    JwtUtil jwtUtil;
-    @Autowired
     HttpServletRequest request;
 
 
@@ -31,12 +28,6 @@ public class UserService {
         User user1 = userDao.findByUsername(user.getUsername());
         if (user1 != null) {
             throw new RuntimeException("用户名已存在!");
-        }
-        if (!user.getRole().equals("1") && !user.getRole().equals("2")) {
-            throw new RuntimeException("用户身份错误!");
-        }
-        if (user.getRole().equals("2")) {
-            user.setRole("待审核");//教师注册,需管理员审核
         }
         user.setId(idWorker.nextId() + "");
         user.setPassword(encoder.encode(user.getPassword()));
@@ -53,10 +44,10 @@ public class UserService {
         //先查用户名
         User userLogin = userDao.findByUsername(user.getUsername());
         //再匹配两个密码
-        if (userLogin != null && encoder.matches(user.getPassword(), userLogin.getPassword())) {
-            return userLogin;
-        }
-        return null;
+//        if (userLogin != null && encoder.matches(user.getPassword(), userLogin.getPassword())) {
+//            return userLogin;
+//        }
+        return userLogin;
     }
 
     public void deleteById(String id) {
@@ -68,7 +59,7 @@ public class UserService {
     }
 
     public User findById(String userId) {
-        return userDao.findById(userId).get();
+        return userDao.findById(userId).orElse(null);
     }
 
     public User findByUsername(String username) {

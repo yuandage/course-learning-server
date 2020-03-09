@@ -1,13 +1,15 @@
 package com.yh;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import java.util.ArrayList;
+import java.util.List;
 
-@SpringBootTest
 class CourseLearningApplicationTests {
 
-    @Test
-    void contextLoads() {
+    public static void main(String[] args) {
+        List<String> role=new ArrayList<>();
+        role.add("admin");
+        role.add("student");
+        System.out.println(role);
     }
 
 }

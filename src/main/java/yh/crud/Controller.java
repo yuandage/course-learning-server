@@ -2,7 +2,6 @@ package yh.crud;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import yh.base.entity.Label;
 import yh.common.Result;
 import yh.common.StatusCode;
 

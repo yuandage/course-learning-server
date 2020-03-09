@@ -2,6 +2,7 @@ package yh.course.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import yh.common.PageResult;
 import yh.common.Result;
@@ -20,6 +21,7 @@ public class CourseController {
     private CourseService courseService;
 
     @RequestMapping(method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('add')")
     public Result findAll() {
         return new Result(true, StatusCode.SUCCESS, "查询成功", courseService.findAll());
     }

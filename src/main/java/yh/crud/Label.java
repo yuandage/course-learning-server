@@ -1,4 +1,4 @@
-package yh.base.entity;
+package yh.crud;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

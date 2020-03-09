@@ -3,7 +3,6 @@ package yh.crud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import yh.base.entity.Label;
 import yh.util.IdWorker;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class CrudService {
     }
 
     public Label findById(String id) {
-        return dao.findById(id).get();
+        return dao.findById(id).orElse(null);
     }
 
     public void save(Label label) {
