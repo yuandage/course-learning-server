@@ -6,7 +6,7 @@ import yh.user.entity.UserFavorite;
 
 import java.util.List;
 
-public interface UserFavoriteDao extends JpaRepository<UserFavorite,String>, JpaSpecificationExecutor<UserFavorite> {
+public interface UserFavoriteDao extends JpaRepository<UserFavorite, String> {
 
-    List<UserFavorite> findByUserId(String userId);
+	List<UserFavorite> findByUserId(String userId);
 }

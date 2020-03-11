@@ -7,8 +7,9 @@ import yh.course.entity.Question;
 
 import java.util.List;
 
-public interface QuestionDao extends JpaRepository<Question, String>, JpaSpecificationExecutor<Question> {
-    List<Question> findByCourseIdAndType(String courseId, String type);
-    @Query(value = "SELECT DISTINCT type FROM question WHERE course_id=:courseId",nativeQuery = true)
-    List<String> findType(String courseId);
+public interface QuestionDao extends JpaRepository<Question, String> {
+	List<Question> findByCourseIdAndType(String courseId, String type);
+
+	@Query(value = "SELECT DISTINCT type FROM question WHERE course_id=:courseId", nativeQuery = true)
+	List<String> findType(String courseId);
 }

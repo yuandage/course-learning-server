@@ -6,6 +6,6 @@ import yh.course.entity.Resource;
 
 import java.util.List;
 
-public interface ResourceDao extends JpaRepository<Resource, String>, JpaSpecificationExecutor<Resource> {
-    List<Resource> findByCourseId(String courseId);
+public interface ResourceDao extends JpaRepository<Resource, String> {
+	List<Resource> findByCourseId(String courseId);
 }

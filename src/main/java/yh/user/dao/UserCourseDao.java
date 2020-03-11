@@ -6,7 +6,7 @@ import yh.user.entity.UserCourse;
 
 import java.util.List;
 
-public interface UserCourseDao extends JpaRepository<UserCourse,String>, JpaSpecificationExecutor<UserCourse> {
+public interface UserCourseDao extends JpaRepository<UserCourse, String> {
 
-    List<UserCourse> findByUserId(String userId);
+	List<UserCourse> findByUserId(String userId);
 }

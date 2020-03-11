@@ -17,9 +17,5 @@ public class CourseLearningApplication {
     public IdWorker idWorker(){
         return new IdWorker(1,1);
     }
-    @Bean
-    public BCryptPasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
-    }
 
 }

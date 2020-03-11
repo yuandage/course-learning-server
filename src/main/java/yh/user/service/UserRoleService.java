@@ -12,33 +12,33 @@ import java.util.List;
 @Service
 @Transactional
 public class UserRoleService {
-    @Autowired
-    private UserRoleDao userRoleDao;
-    @Autowired
-    private IdWorker idWorker;
+	@Autowired
+	private UserRoleDao userRoleDao;
+	@Autowired
+	private IdWorker idWorker;
 
-    public List<UserRole> findAll() {
-        return userRoleDao.findAll();
-    }
+	public List<UserRole> findAll() {
+		return userRoleDao.findAll();
+	}
 
-    public UserRole findById(String id) {
-        return userRoleDao.findById(id).orElse(null);
-    }
+	public UserRole findById(String id) {
+		return userRoleDao.findById(id).orElse(null);
+	}
 
-    public void save(UserRole userRole) {
-        userRole.setId(idWorker.nextId()+"");//设置分布式ID
-        userRoleDao.save(userRole);
-    }
+	public void save(UserRole userRole) {
+		userRole.setId(idWorker.nextId() + "");//设置分布式ID
+		userRoleDao.save(userRole);
+	}
 
-    public void update(UserRole userRole) {
-        userRoleDao.save(userRole);
-    }
+	public void update(UserRole userRole) {
+		userRoleDao.save(userRole);
+	}
 
-    public void deleteById(String id) {
-        userRoleDao.deleteById(id);
-    }
+	public void deleteById(String id) {
+		userRoleDao.deleteById(id);
+	}
 
-    public List<UserRole> findByUserId(String id) {
-        return userRoleDao.findByUserId(id);
-    }
+	public List<UserRole> findByUserId(String id) {
+		return userRoleDao.findByUserId(id);
+	}
 }

@@ -11,39 +11,39 @@ import yh.user.entity.UserFavorite;
 @CrossOrigin
 @RequestMapping("/userFavorite")
 public class UserFavoriteController {
-    @Autowired
-    private UserFavoriteService userFavoriteCrudService;
+	@Autowired
+	private UserFavoriteService userFavoriteCrudService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Result findAll() {
-        return new Result(true, StatusCode.SUCCESS, "查询成功", userFavoriteCrudService.findAll());
-    }
+	@RequestMapping(method = RequestMethod.GET)
+	public Result findAll() {
+		return new Result(true, StatusCode.SUCCESS, "查询成功", userFavoriteCrudService.findAll());
+	}
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Result findById(@PathVariable String id) {
-        return new Result(true, StatusCode.SUCCESS, "查询成功", userFavoriteCrudService.findById(id));
-    }
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public Result findById(@PathVariable String id) {
+		return new Result(true, StatusCode.SUCCESS, "查询成功", userFavoriteCrudService.findById(id));
+	}
 
-    @RequestMapping(value = "/userId/{userId}", method = RequestMethod.GET)
-    public Result findByUserId(@PathVariable String userId) {
-        return new Result(true, StatusCode.SUCCESS, "查询成功", userFavoriteCrudService.findByUserId(userId));
-    }
+	@RequestMapping(value = "/userId/{userId}", method = RequestMethod.GET)
+	public Result findByUserId(@PathVariable String userId) {
+		return new Result(true, StatusCode.SUCCESS, "查询成功", userFavoriteCrudService.findByUserId(userId));
+	}
 
-    @RequestMapping(method = RequestMethod.POST)
-    public Result save(@RequestBody UserFavorite userFavorite) {
-        return new Result(true, StatusCode.SUCCESS, "添加成功",userFavoriteCrudService.save(userFavorite));
-    }
+	@RequestMapping(method = RequestMethod.POST)
+	public Result save(@RequestBody UserFavorite userFavorite) {
+		return new Result(true, StatusCode.SUCCESS, "添加成功", userFavoriteCrudService.save(userFavorite));
+	}
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public Result update(@RequestBody UserFavorite userFavorite) {
-        userFavoriteCrudService.update(userFavorite);
-        return new Result(true, StatusCode.SUCCESS, "更新成功");
-    }
+	@RequestMapping(method = RequestMethod.PUT)
+	public Result update(@RequestBody UserFavorite userFavorite) {
+		userFavoriteCrudService.update(userFavorite);
+		return new Result(true, StatusCode.SUCCESS, "更新成功");
+	}
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Result deleteById(@PathVariable String id) {
-        userFavoriteCrudService.deleteById(id);
-        return new Result(true, StatusCode.SUCCESS, "删除成功");
-    }
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public Result deleteById(@PathVariable String id) {
+		userFavoriteCrudService.deleteById(id);
+		return new Result(true, StatusCode.SUCCESS, "删除成功");
+	}
 
 }

@@ -12,33 +12,33 @@ import java.util.List;
 @Service
 @Transactional
 public class CommentService {
-    @Autowired
-    private CommentDao commentDao;
-    @Autowired
-    private IdWorker idWorker;
+	@Autowired
+	private CommentDao commentDao;
+	@Autowired
+	private IdWorker idWorker;
 
-    public List<Comment> findAll() {
-        return commentDao.findAll();
-    }
+	public List<Comment> findAll() {
+		return commentDao.findAll();
+	}
 
-    public Comment findById(String id) {
-        return commentDao.findById(id).get();
-    }
+	public Comment findById(String id) {
+		return commentDao.findById(id).orElse(null);
+	}
 
-    public void save(Comment comment) {
-        comment.setId(idWorker.nextId()+"");//设置分布式ID
-        commentDao.save(comment);
-    }
+	public void save(Comment comment) {
+		comment.setId(idWorker.nextId() + "");//设置分布式ID
+		commentDao.save(comment);
+	}
 
-    public void update(Comment comment) {
-        commentDao.save(comment);
-    }
+	public void update(Comment comment) {
+		commentDao.save(comment);
+	}
 
-    public void deleteById(String id) {
-        commentDao.deleteById(id);
-    }
+	public void deleteById(String id) {
+		commentDao.deleteById(id);
+	}
 
-    public List<Comment> findByCourseId(String id) {
-        return commentDao.findByCourseId(id);
-    }
+	public List<Comment> findByCourseId(String id) {
+		return commentDao.findByCourseId(id);
+	}
 }

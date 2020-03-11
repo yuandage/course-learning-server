@@ -6,6 +6,6 @@ import yh.course.entity.Comment;
 
 import java.util.List;
 
-public interface CommentDao extends JpaRepository<Comment, String>, JpaSpecificationExecutor<Comment> {
-    List<Comment> findByCourseId(String id);
+public interface CommentDao extends JpaRepository<Comment, String> {
+	List<Comment> findByCourseId(String id);
 }

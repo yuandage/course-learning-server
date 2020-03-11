@@ -6,8 +6,9 @@ import yh.course.entity.Subject;
 
 import java.util.List;
 
-public interface SubjectDao extends JpaRepository<Subject, String>, JpaSpecificationExecutor<Subject> {
-    int countByParentIdIsNull();
-    List<Subject> findByParentIdNotNull();
+public interface SubjectDao extends JpaRepository<Subject, String> {
+	int countByParentIdIsNull();
+
+	List<Subject> findByParentIdNotNull();
 }
 

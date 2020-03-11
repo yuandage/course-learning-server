@@ -3,15 +3,18 @@ package yh.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import yh.role.entity.Role;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 public class JwtTokenUtils {
 
-	private static String KEY="yhyh";//盐
-	private static long EXPIRATION=1000*60*60*24;//过期时间24小时
+	private static String KEY = "yhyh";//盐
+	private static long EXPIRATION = 1000 * 60 * 60 * 24;//过期时间24小时
 	private static String ROLE = "role";  //角色键
+	private static String AUTHORITIES = "authorities";  //权限键
 
 	//生成token
 	public static String createToken(String username, String roles) {
@@ -27,14 +30,28 @@ public class JwtTokenUtils {
 	}
 
 	//生成token
-	public static String createToken(String username, Map<String, Object> userInfo) {
+	public static String createToken(String username, Object authorities) {
 		long nowMillis = System.currentTimeMillis();
 		Date now = new Date(nowMillis);
 		return Jwts.builder()
 				.signWith(SignatureAlgorithm.HS256, KEY)
 				.setIssuedAt(now)
 				.setSubject(username)
-				.claim("userInfo", userInfo)
+				.claim(AUTHORITIES, authorities)
+				.setExpiration(new Date(nowMillis + EXPIRATION))
+				.compact();
+	}
+
+	//生成token
+	public static String createToken(String username, Object authorities, List<String> roles) {
+		long nowMillis = System.currentTimeMillis();
+		Date now = new Date(nowMillis);
+		return Jwts.builder()
+				.signWith(SignatureAlgorithm.HS256, KEY)
+				.setIssuedAt(now)
+				.setSubject(username)
+				.claim(AUTHORITIES, authorities)
+				.claim(ROLE, roles)
 				.setExpiration(new Date(nowMillis + EXPIRATION))
 				.compact();
 	}
@@ -71,6 +88,41 @@ public class JwtTokenUtils {
 		return username;
 	}
 
+	//从令牌中获取角色和权限
+	public static List<SimpleGrantedAuthority> getAuthoritiesFromToken(String token) {
+		if (token == null)
+			return null;
+		if (isTokenExpired(token)) {
+			return null;
+		}
+		Claims claims = getClaimsFromToken(token);
+		if (claims == null) {
+			return null;
+		}
+		Object authors = claims.get(AUTHORITIES);
+		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		if (authors instanceof List) {
+			for (Object object : (List) authors) {
+				authorities.add(new SimpleGrantedAuthority((String) ((Map) object).get("authority")));
+			}
+		}
+		return authorities;
+	}
+
+	//从令牌中获取角色
+	public static List<String> getRolesFromToken(String token) {
+		if (token == null)
+			return null;
+		if (isTokenExpired(token)) {
+			return null;
+		}
+		Claims claims = getClaimsFromToken(token);
+		if (claims == null) {
+			return null;
+		}
+		List<String> roles = (List<String>) claims.get(ROLE);
+		return roles;
+	}
 
 	//验证令牌
 	public static Boolean validateToken(String username, String token) {

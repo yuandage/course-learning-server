@@ -6,7 +6,7 @@ import yh.user.entity.UserRole;
 
 import java.util.List;
 
-public interface UserRoleDao extends JpaRepository<UserRole,String>, JpaSpecificationExecutor<UserRole> {
+public interface UserRoleDao extends JpaRepository<UserRole, String> {
 
 	List<UserRole> findByUserId(String id);
 }

@@ -12,35 +12,35 @@ import java.util.List;
 @Service
 @Transactional
 public class UserFavoriteService {
-    @Autowired
-    private UserFavoriteDao userFavoriteDao;
-    @Autowired
-    private IdWorker idWorker;
+	@Autowired
+	private UserFavoriteDao userFavoriteDao;
+	@Autowired
+	private IdWorker idWorker;
 
-    public List<UserFavorite> findAll() {
-        return userFavoriteDao.findAll();
-    }
+	public List<UserFavorite> findAll() {
+		return userFavoriteDao.findAll();
+	}
 
-    public UserFavorite findById(String id) {
-        return userFavoriteDao.findById(id).get();
-    }
+	public UserFavorite findById(String id) {
+		return userFavoriteDao.findById(id).orElse(null);
+	}
 
-    public String save(UserFavorite userFavorite) {
-        String id=idWorker.nextId()+"";
-        userFavorite.setId(id);//设置分布式ID
-        userFavoriteDao.save(userFavorite);
-        return id;
-    }
+	public String save(UserFavorite userFavorite) {
+		String id = idWorker.nextId() + "";
+		userFavorite.setId(id);//设置分布式ID
+		userFavoriteDao.save(userFavorite);
+		return id;
+	}
 
-    public void update(UserFavorite userFavorite) {
-        userFavoriteDao.save(userFavorite);
-    }
+	public void update(UserFavorite userFavorite) {
+		userFavoriteDao.save(userFavorite);
+	}
 
-    public void deleteById(String id) {
-        userFavoriteDao.deleteById(id);
-    }
+	public void deleteById(String id) {
+		userFavoriteDao.deleteById(id);
+	}
 
-    public List<UserFavorite> findByUserId(String userId) {
-        return userFavoriteDao.findByUserId(userId);
-    }
+	public List<UserFavorite> findByUserId(String userId) {
+		return userFavoriteDao.findByUserId(userId);
+	}
 }

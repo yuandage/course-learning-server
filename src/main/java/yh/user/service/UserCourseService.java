@@ -12,33 +12,33 @@ import java.util.List;
 @Service
 @Transactional
 public class UserCourseService {
-    @Autowired
-    private UserCourseDao userCourseDao;
-    @Autowired
-    private IdWorker idWorker;
+	@Autowired
+	private UserCourseDao userCourseDao;
+	@Autowired
+	private IdWorker idWorker;
 
-    public List<UserCourse> findAll() {
-        return userCourseDao.findAll();
-    }
+	public List<UserCourse> findAll() {
+		return userCourseDao.findAll();
+	}
 
-    public UserCourse findById(String id) {
-        return userCourseDao.findById(id).get();
-    }
+	public UserCourse findById(String id) {
+		return userCourseDao.findById(id).orElse(null);
+	}
 
-    public void save(UserCourse userCourse) {
-        userCourse.setId(idWorker.nextId()+"");//设置分布式ID
-        userCourseDao.save(userCourse);
-    }
+	public void save(UserCourse userCourse) {
+		userCourse.setId(idWorker.nextId() + "");//设置分布式ID
+		userCourseDao.save(userCourse);
+	}
 
-    public void update(UserCourse userCourse) {
-        userCourseDao.save(userCourse);
-    }
+	public void update(UserCourse userCourse) {
+		userCourseDao.save(userCourse);
+	}
 
-    public void deleteById(String id) {
-        userCourseDao.deleteById(id);
-    }
+	public void deleteById(String id) {
+		userCourseDao.deleteById(id);
+	}
 
-    public List<UserCourse> findByUserId(String userId) {
-        return userCourseDao.findByUserId(userId);
-    }
+	public List<UserCourse> findByUserId(String userId) {
+		return userCourseDao.findByUserId(userId);
+	}
 }

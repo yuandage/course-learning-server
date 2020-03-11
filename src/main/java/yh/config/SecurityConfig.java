@@ -3,6 +3,7 @@ package yh.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -52,10 +53,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		//禁用CSRF
-		http.csrf().disable()
+		http.cors().and().csrf().disable()
 				.authorizeRequests()
 				// 登录和注册接口
 				.antMatchers("/user/login", "/user/register").permitAll()
+				//首页需要的数据
+				.antMatchers(HttpMethod.GET,"/course/**", "/subject/**").permitAll()
 				// swagger
 				.antMatchers("/swagger-ui.html").permitAll()
 				.antMatchers("/swagger-resources/**").permitAll()

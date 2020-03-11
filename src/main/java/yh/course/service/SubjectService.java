@@ -12,32 +12,32 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class SubjectService {
-    @Autowired
-    SubjectDao subjectDao;
+	@Autowired
+	SubjectDao subjectDao;
 
-    public List<Subject> findSubjectType() {
+	public List<Subject> findSubjectType() {
 
-        List<Subject> list = subjectDao.findAll();
-        //根据父节点id分组
-        Map<Integer, List<Subject>> map = list.stream()
-                .filter(o -> Objects.nonNull(o.getParentId()))
-                .collect(Collectors.groupingBy(Subject::getParentId));
+		List<Subject> list = subjectDao.findAll();
+		//根据父节点id分组
+		Map<Integer, List<Subject>> map = list.stream()
+				.filter(o -> Objects.nonNull(o.getParentId()))
+				.collect(Collectors.groupingBy(Subject::getParentId));
 
-        //循环处理子节点 构建树状结构
-        list.forEach(subject -> {
-            if (map.containsKey(subject.getId())) {
-                subject.setSubjectList(map.get(subject.getId()));
-            }
-        });
+		//循环处理子节点 构建树状结构
+		list.forEach(subject -> {
+			if (map.containsKey(subject.getId())) {
+				subject.setSubjectList(map.get(subject.getId()));
+			}
+		});
 
-        //获取指定分类的对象
-        //Subject result = list.stream().filter(subject -> subject.getId() == 1|| subject.getId() == 2).findFirst().orElse(null);
+		//获取指定分类的对象
+		//Subject result = list.stream().filter(subject -> subject.getId() == 1|| subject.getId() == 2).findFirst().orElse(null);
 
-        //获取一级学科分类的数量subjectDao.countByParentIdIsNull()
-        return list.subList(0,subjectDao.countByParentIdIsNull());//一级学科分类
-    }
+		//获取一级学科分类的数量subjectDao.countByParentIdIsNull()
+		return list.subList(0, subjectDao.countByParentIdIsNull());//一级学科分类
+	}
 
-    public List<Subject> findChildSubject() {
-        return subjectDao.findByParentIdNotNull();
-    }
+	public List<Subject> findChildSubject() {
+		return subjectDao.findByParentIdNotNull();
+	}
 }

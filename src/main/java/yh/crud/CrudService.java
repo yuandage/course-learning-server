@@ -10,30 +10,30 @@ import java.util.List;
 @Service
 @Transactional
 public class CrudService {
-    @Autowired
-    private Dao dao;
-    @Autowired
-    private IdWorker idWorker;
+	@Autowired
+	private Dao dao;
+	@Autowired
+	private IdWorker idWorker;
 
-    public List<Label> findAll() {
-        return dao.findAll();
-    }
+	public List<Label> findAll() {
+		return dao.findAll();
+	}
 
-    public Label findById(String id) {
-        return dao.findById(id).orElse(null);
-    }
+	public Label findById(String id) {
+		return dao.findById(id).orElse(null);
+	}
 
-    public void save(Label label) {
-        label.setId(idWorker.nextId()+"");//设置分布式ID
-        dao.save(label);
-    }
+	public void save(Label label) {
+		label.setId(idWorker.nextId() + "");//设置分布式ID
+		dao.save(label);
+	}
 
-    public void update(Label label) {
-        dao.save(label);
-    }
+	public void update(Label label) {
+		dao.save(label);
+	}
 
-    public void deleteById(String id) {
-        dao.deleteById(id);
-    }
+	public void deleteById(String id) {
+		dao.deleteById(id);
+	}
 
 }
