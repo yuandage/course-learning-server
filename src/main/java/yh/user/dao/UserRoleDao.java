@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserRoleDao extends JpaRepository<UserRole, String> {
 
 	List<UserRole> findByUserId(String id);
+
+	void deleteByUserIdAndRoleId(String userId, String roleId);
 }

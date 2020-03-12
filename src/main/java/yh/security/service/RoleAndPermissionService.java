@@ -2,7 +2,6 @@ package yh.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import yh.permission.entity.Permission;
 import yh.permission.service.PermissionService;
 import yh.role.entity.Role;
 import yh.role.entity.RolePermission;
@@ -40,7 +39,7 @@ public class RoleAndPermissionService {
 		return roles;
 	}
 
-	public List<Permission> getUserPermission(List<Role> roles) {
+	public List<yh.permission.entity.Permission> getUserPermission(List<Role> roles) {
 		if (roles == null)
 			return null;
 		List<RolePermission> rolePermissions = new ArrayList<>();
@@ -50,9 +49,9 @@ public class RoleAndPermissionService {
 		}
 		if (rolePermissions.isEmpty())
 			return null;
-		List<Permission> permissions = new ArrayList<>();
+		List<yh.permission.entity.Permission> permissions = new ArrayList<>();
 		for (RolePermission rolePermission : rolePermissions) {
-			Permission permission = permissionService.findById(rolePermission.getPermissionId());
+			yh.permission.entity.Permission permission = permissionService.findById(rolePermission.getPermissionId());
 			permissions.add(permission);
 		}
 		return permissions;

@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import yh.role.dao.RolePermissionDao;
-import yh.role.entity.Role;
 import yh.role.entity.RolePermission;
 import yh.util.IdWorker;
 

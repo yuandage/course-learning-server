@@ -11,7 +11,7 @@
     <groupId>com.yh</groupId>
     <artifactId>course-learning</artifactId>
     <version>1.0.0</version>
-    <name>course-learning</name>
+    <name>course-learning-server</name>
     <description>Course Learning and Testing Platform project for Spring Boot</description>
 
     <properties>

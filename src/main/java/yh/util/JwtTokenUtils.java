@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import yh.role.entity.Role;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;

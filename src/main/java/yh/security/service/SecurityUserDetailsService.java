@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import yh.permission.entity.Permission;
 import yh.role.entity.Role;
 import yh.security.entity.SecurityUserDetails;
 import yh.user.entity.User;
@@ -35,7 +34,7 @@ public class SecurityUserDetailsService implements UserDetailsService {
 			return new SecurityUserDetails(user.getUsername(), user.getPassword(), null,user,null,null);
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-		List<Permission> userPermissions = roleAndPermissionService.getUserPermission(userRoles);
+		List<yh.permission.entity.Permission> userPermissions = roleAndPermissionService.getUserPermission(userRoles);
 		List<String> userRolesList = new ArrayList<>();
 		if (userPermissions == null || userPermissions.isEmpty()) {
 			for (Role role : userRoles) {
@@ -49,7 +48,7 @@ public class SecurityUserDetailsService implements UserDetailsService {
 				authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
 			}
 			List<String> userPermissionsList = new ArrayList<>();
-			for (Permission permission : userPermissions) {
+			for (yh.permission.entity.Permission permission : userPermissions) {
 				userPermissionsList.add(permission.getName());
 				authorities.add(new SimpleGrantedAuthority(permission.getName()));
 			}

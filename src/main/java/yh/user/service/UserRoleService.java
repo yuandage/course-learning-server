@@ -41,4 +41,8 @@ public class UserRoleService {
 	public List<UserRole> findByUserId(String id) {
 		return userRoleDao.findByUserId(id);
 	}
+
+	public void deleteByUserIdAndRoleId(String userId, String roleId) {
+		userRoleDao.deleteByUserIdAndRoleId(userId, roleId);
+	}
 }
