@@ -2,6 +2,7 @@ package yh.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import yh.permission.entity.Permission;
 import yh.permission.service.PermissionService;
 import yh.role.entity.Role;
 import yh.role.entity.RolePermission;
@@ -25,7 +26,7 @@ public class RoleAndPermissionService {
 	@Autowired
 	PermissionService permissionService;
 
-	public List<Role> getUserRole(String userId) {
+	public List<Role> getUserRoles(String userId) {
 		if (userId == null)
 			return null;
 		List<UserRole> userRoles = userRoleService.findByUserId(userId);
@@ -39,20 +40,26 @@ public class RoleAndPermissionService {
 		return roles;
 	}
 
-	public List<yh.permission.entity.Permission> getUserPermission(List<Role> roles) {
-		if (roles == null)
+	public List<Permission> getRolePermissions(String roleId) {
+		if (roleId == null)
 			return null;
-		List<RolePermission> rolePermissions = new ArrayList<>();
-		for (Role role : roles) {
-			List<RolePermission> rolePermission = rolePermissionService.findByRoleId(role.getId());
-			rolePermissions.addAll(rolePermission);
-		}
-		if (rolePermissions.isEmpty())
+		List<RolePermission> rolePermissions = rolePermissionService.findByRoleId(roleId);
+		if (rolePermissions == null)
 			return null;
-		List<yh.permission.entity.Permission> permissions = new ArrayList<>();
+		List<Permission> permissions = new ArrayList<>();
 		for (RolePermission rolePermission : rolePermissions) {
-			yh.permission.entity.Permission permission = permissionService.findById(rolePermission.getPermissionId());
+			Permission permission = permissionService.findById(rolePermission.getPermissionId());
 			permissions.add(permission);
+		}
+		return permissions;
+	}
+
+	public List<Permission> getUserPermissions(List<Role> roles) {
+		if (roles == null||roles.isEmpty())
+			return null;
+		List<Permission> permissions = new ArrayList<>();
+		for (Role role : roles) {
+			permissions.addAll(getRolePermissions(role.getId()));
 		}
 		return permissions;
 	}

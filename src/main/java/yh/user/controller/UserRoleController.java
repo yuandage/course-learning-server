@@ -27,9 +27,9 @@ public class UserRoleController {
 		return new Result(true, StatusCode.SUCCESS, "查询成功", userRoleService.findById(id));
 	}
 
-	@RequestMapping(value = "/userId/{id}", method = RequestMethod.GET)
-	public Result findUserRoles(@PathVariable String id) {
-		return new Result(true, StatusCode.SUCCESS, "查询成功", roleAndPermissionService.getUserRole(id));
+	@RequestMapping(value = "/userId/{userId}", method = RequestMethod.GET)
+	public Result findUserRoles(@PathVariable String userId) {
+		return new Result(true, StatusCode.SUCCESS, "查询成功", roleAndPermissionService.getUserRoles(userId));
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Table(name = "question_comment")
-public class QuestionComment {
+@Table(name = "course_question_comment")
+public class CourseQuestionComment {
 
 	@Id
 	private String id;//id

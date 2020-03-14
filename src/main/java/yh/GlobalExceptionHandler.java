@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	public Result handleException(Exception e) {
 		e.printStackTrace();//追踪错误信息
-		if (e.getMessage().equals("用户名不存在!"))
+		if ("用户名不存在!".equals(e.getMessage()))
 			return new Result(false, StatusCode.LOGIN_ERROR, "用户名不存在!", e.getMessage());
 		return new Result(false, StatusCode.ERROR, "发生了错误!", e.getMessage());
 	}

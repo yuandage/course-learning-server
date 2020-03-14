@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import yh.common.Result;
 import yh.common.StatusCode;
-import yh.course.entity.Resource;
-import yh.course.service.ResourceService;
+import yh.course.entity.CourseResource;
+import yh.course.service.CourseResourceService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,51 +18,51 @@ import java.util.Date;
 @RestController
 @CrossOrigin
 @RequestMapping("/resource")
-public class ResourceController {
+public class CourseResourceController {
 
 	@Autowired
-	private ResourceService resourceService;
+	private CourseResourceService courseResourceService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Result findAll() {
-		return new Result(true, StatusCode.SUCCESS, "查询成功", resourceService.findAll());
+		return new Result(true, StatusCode.SUCCESS, "查询成功", courseResourceService.findAll());
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Result findById(@PathVariable String id) {
-		return new Result(true, StatusCode.SUCCESS, "查询成功", resourceService.findById(id));
+		return new Result(true, StatusCode.SUCCESS, "查询成功", courseResourceService.findById(id));
 	}
 
-	@RequestMapping(value = "/course/{courseId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/courseId/{courseId}", method = RequestMethod.GET)
 	public Result findByCourseId(@PathVariable String courseId) {
-		return new Result(true, StatusCode.SUCCESS, "查询成功", resourceService.findByCourseId(courseId));
+		return new Result(true, StatusCode.SUCCESS, "查询成功", courseResourceService.findByCourseId(courseId));
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Result save(@RequestBody Resource resource) {
-		resourceService.save(resource);
+	public Result save(@RequestBody CourseResource courseResource) {
+		courseResourceService.save(courseResource);
 		return new Result(true, StatusCode.SUCCESS, "添加成功");
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Result update(@PathVariable String id, @RequestBody Resource resource) {
-		resourceService.update(resource);
+	public Result update(@PathVariable String id, @RequestBody CourseResource courseResource) {
+		courseResourceService.update(courseResource);
 		return new Result(true, StatusCode.SUCCESS, "更新成功");
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public Result deleteById(@PathVariable String id) {
-		resourceService.deleteById(id);
+		courseResourceService.deleteById(id);
 		return new Result(true, StatusCode.SUCCESS, "删除成功");
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public Result fileUpload(Resource resource, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
+	public Result fileUpload(CourseResource courseResource, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
 		Date date = new Date();
-		resource.setCreateTime(date);
-		resource.setUpdateTime(date);
+		courseResource.setCreateTime(date);
+		courseResource.setUpdateTime(date);
 
-		resourceService.save(resource);
+		courseResourceService.save(courseResource);
 
 		File path = null;
 		try {
@@ -73,7 +73,7 @@ public class ResourceController {
 		System.out.println("path:" + path.getAbsolutePath());
 
 		String originalFileName = multipartFile.getOriginalFilename();
-		String fileNamePrefix = resource.getName() + "-" + resource.getId();
+		String fileNamePrefix = courseResource.getName() + "-" + courseResource.getId();
 		String newFileName = fileNamePrefix + originalFileName.substring(originalFileName.lastIndexOf("."));
 		File dir = new File(path.getAbsolutePath() + "/course-resource");
 		if (!dir.exists())  //如果文件目录不存在
@@ -96,8 +96,8 @@ public class ResourceController {
 			e.printStackTrace();
 		}
 		System.out.println("path:" + path.getAbsolutePath() + "/course-resource/");
-		Resource resource = resourceService.findById(id);
-		String fileNamePrefix = resource.getName() + "-" + resource.getId();
+		CourseResource courseResource = courseResourceService.findById(id);
+		String fileNamePrefix = courseResource.getName() + "-" + courseResource.getId();
 		System.out.println("文件名:" + fileNamePrefix);
 		File file = new File(path.getAbsolutePath() + "/course-resource/");
 		File[] files = file.listFiles();

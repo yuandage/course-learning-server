@@ -6,19 +6,16 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-@Table(name = "question")
-public class Question {
+@Table(name = "course_resource")
+public class CourseResource {
 
 	@Id
-	private String id;//id
+	private String id;//ID
 	private String courseId;//课程id
-	private String sectionId;//章节id
-	private String sectionTitle;//章节标题
-	private String type;//题目类型
-	private String content;//题目内容
-	private String optionContent;//题目选项
-	private String answer;//题目答案
-	private String analysis;//题目解析
+	private String name;//名称
+	private String type;//类型
+	private String summary;//简介
+	private String resUrl;//资料链接
 	private String createUser;//创建人
 	private Date createTime;//创建时间
 	private String updateUser;//更新人
@@ -40,20 +37,12 @@ public class Question {
 		this.courseId = courseId;
 	}
 
-	public String getSectionId() {
-		return sectionId;
+	public String getName() {
+		return name;
 	}
 
-	public void setSectionId(String sectionId) {
-		this.sectionId = sectionId;
-	}
-
-	public String getSectionTitle() {
-		return sectionTitle;
-	}
-
-	public void setSectionTitle(String sectionTitle) {
-		this.sectionTitle = sectionTitle;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getType() {
@@ -64,36 +53,20 @@ public class Question {
 		this.type = type;
 	}
 
-	public String getContent() {
-		return content;
+	public String getSummary() {
+		return summary;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
-	public String getOptionContent() {
-		return optionContent;
+	public String getResUrl() {
+		return resUrl;
 	}
 
-	public void setOptionContent(String option) {
-		this.optionContent = option;
-	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
-	public String getAnalysis() {
-		return analysis;
-	}
-
-	public void setAnalysis(String analysis) {
-		this.analysis = analysis;
+	public void setResUrl(String resUrl) {
+		this.resUrl = resUrl;
 	}
 
 	public String getCreateUser() {

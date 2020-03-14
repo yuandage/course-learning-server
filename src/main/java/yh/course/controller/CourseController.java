@@ -21,7 +21,6 @@ public class CourseController {
     private CourseService courseService;
 
     @RequestMapping(method = RequestMethod.GET)
-    @PreAuthorize("hasAuthority('add')")
     public Result findAll() {
         return new Result(true, StatusCode.SUCCESS, "查询成功", courseService.findAll());
     }

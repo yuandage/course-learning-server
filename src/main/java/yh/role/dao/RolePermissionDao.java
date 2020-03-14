@@ -8,4 +8,6 @@ import java.util.List;
 public interface RolePermissionDao extends JpaRepository<RolePermission, String> {
 
 	List<RolePermission> findByRoleId(String roleId);
+
+	void deleteByRoleIdAndPermissionId(String roleId, String permissionId);
 }

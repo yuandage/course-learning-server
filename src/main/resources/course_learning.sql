@@ -141,10 +141,10 @@ INSERT INTO `label` VALUES ('5', 'ios++', '1', NULL, NULL, NULL);
 INSERT INTO `label` VALUES ('6', 'ios6', '1', NULL, NULL, NULL);
 
 -- ----------------------------
--- Table structure for resource
+-- Table structure for courseResource
 -- ----------------------------
-DROP TABLE IF EXISTS `resource`;
-CREATE TABLE `resource`  (
+DROP TABLE IF EXISTS `courseResource`;
+CREATE TABLE `courseResource`  (
   `id` varbinary(20) NOT NULL COMMENT 'ID',
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '名称',
   `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类型',
@@ -155,10 +155,10 @@ CREATE TABLE `resource`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for subject
+-- Table structure for courseClassification
 -- ----------------------------
-DROP TABLE IF EXISTS `subject`;
-CREATE TABLE `subject`  (
+DROP TABLE IF EXISTS `courseClassification`;
+CREATE TABLE `courseClassification`  (
   `id` int(20) NOT NULL COMMENT 'id',
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '名称',
   `parent_id` int(20) NULL DEFAULT NULL COMMENT '父节点',
@@ -166,34 +166,34 @@ CREATE TABLE `subject`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of subject
+-- Records of courseClassification
 -- ----------------------------
-INSERT INTO `subject` VALUES (1, '计算机等级考试', NULL);
-INSERT INTO `subject` VALUES (2, '前端语言程序设计', NULL);
-INSERT INTO `subject` VALUES (3, '后端语言程序设计', NULL);
-INSERT INTO `subject` VALUES (4, '数据结构与算法分析', NULL);
-INSERT INTO `subject` VALUES (5, '数据库设计', NULL);
-INSERT INTO `subject` VALUES (6, '微机原理与接口技术', NULL);
-INSERT INTO `subject` VALUES (21, '二级C语言', 1);
-INSERT INTO `subject` VALUES (22, '二级Office', 1);
-INSERT INTO `subject` VALUES (23, '三级数据库', 1);
-INSERT INTO `subject` VALUES (24, '三级网络', 1);
-INSERT INTO `subject` VALUES (25, '三级信息安全', 1);
-INSERT INTO `subject` VALUES (26, '四级网络工程师', 1);
-INSERT INTO `subject` VALUES (27, '四级数据库工程师', 1);
-INSERT INTO `subject` VALUES (28, '四级信息安全工程师', 1);
-INSERT INTO `subject` VALUES (31, 'HTML', 2);
-INSERT INTO `subject` VALUES (32, 'JavaScript', 2);
-INSERT INTO `subject` VALUES (33, 'CSS', 2);
-INSERT INTO `subject` VALUES (34, 'Node.js', 2);
-INSERT INTO `subject` VALUES (35, 'Vue.js', 2);
-INSERT INTO `subject` VALUES (41, 'C语言程序设计', 3);
-INSERT INTO `subject` VALUES (42, 'C++语言程序设计', 3);
-INSERT INTO `subject` VALUES (43, 'JAVA语言程序设计', 3);
-INSERT INTO `subject` VALUES (51, '数据结构', 4);
-INSERT INTO `subject` VALUES (52, '算法分析与实现', 4);
-INSERT INTO `subject` VALUES (61, '数据库基础', 5);
-INSERT INTO `subject` VALUES (71, '微机原理与接口技术', 6);
+INSERT INTO `courseClassification` VALUES (1, '计算机等级考试', NULL);
+INSERT INTO `courseClassification` VALUES (2, '前端语言程序设计', NULL);
+INSERT INTO `courseClassification` VALUES (3, '后端语言程序设计', NULL);
+INSERT INTO `courseClassification` VALUES (4, '数据结构与算法分析', NULL);
+INSERT INTO `courseClassification` VALUES (5, '数据库设计', NULL);
+INSERT INTO `courseClassification` VALUES (6, '微机原理与接口技术', NULL);
+INSERT INTO `courseClassification` VALUES (21, '二级C语言', 1);
+INSERT INTO `courseClassification` VALUES (22, '二级Office', 1);
+INSERT INTO `courseClassification` VALUES (23, '三级数据库', 1);
+INSERT INTO `courseClassification` VALUES (24, '三级网络', 1);
+INSERT INTO `courseClassification` VALUES (25, '三级信息安全', 1);
+INSERT INTO `courseClassification` VALUES (26, '四级网络工程师', 1);
+INSERT INTO `courseClassification` VALUES (27, '四级数据库工程师', 1);
+INSERT INTO `courseClassification` VALUES (28, '四级信息安全工程师', 1);
+INSERT INTO `courseClassification` VALUES (31, 'HTML', 2);
+INSERT INTO `courseClassification` VALUES (32, 'JavaScript', 2);
+INSERT INTO `courseClassification` VALUES (33, 'CSS', 2);
+INSERT INTO `courseClassification` VALUES (34, 'Node.js', 2);
+INSERT INTO `courseClassification` VALUES (35, 'Vue.js', 2);
+INSERT INTO `courseClassification` VALUES (41, 'C语言程序设计', 3);
+INSERT INTO `courseClassification` VALUES (42, 'C++语言程序设计', 3);
+INSERT INTO `courseClassification` VALUES (43, 'JAVA语言程序设计', 3);
+INSERT INTO `courseClassification` VALUES (51, '数据结构', 4);
+INSERT INTO `courseClassification` VALUES (52, '算法分析与实现', 4);
+INSERT INTO `courseClassification` VALUES (61, '数据库基础', 5);
+INSERT INTO `courseClassification` VALUES (71, '微机原理与接口技术', 6);
 
 -- ----------------------------
 -- Table structure for topic

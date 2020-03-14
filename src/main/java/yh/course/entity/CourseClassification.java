@@ -7,21 +7,21 @@ import javax.persistence.Transient;
 import java.util.List;
 
 @Entity
-@Table(name = "subject")
-public class Subject {
+@Table(name = "course_classification")
+public class CourseClassification {
 	@Id
 	private Integer id;//ID
 	private String name;//名称
 	private Integer parentId;//父节点
 	@Transient
-	private List<Subject> subjectList;
+	private List<CourseClassification> courseClassificationList;
 
-	public List<Subject> getSubjectList() {
-		return subjectList;
+	public List<CourseClassification> getCourseClassificationList() {
+		return courseClassificationList;
 	}
 
-	public void setSubjectList(List<Subject> subjectList) {
-		this.subjectList = subjectList;
+	public void setCourseClassificationList(List<CourseClassification> courseClassificationList) {
+		this.courseClassificationList = courseClassificationList;
 	}
 
 	public Integer getId() {

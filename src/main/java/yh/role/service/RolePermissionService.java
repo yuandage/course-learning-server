@@ -41,4 +41,8 @@ public class RolePermissionService {
 	public List<RolePermission> findByRoleId(String roleId) {
 		return rolePermissionDao.findByRoleId(roleId);
 	}
+
+	public void deleteByRoleIdAndPermissionId(String roleId, String permissionId) {
+		rolePermissionDao.deleteByRoleIdAndPermissionId(roleId, permissionId);
+	}
 }

@@ -86,7 +86,7 @@ public class UserController {
 		SecurityUserDetails securityUserDetails = (SecurityUserDetails) authentication.getPrincipal();
 		if (securityUserDetails.getUserRoles() == null)
 			return new Result(false, StatusCode.LOGIN_ERROR, "登录失败!","用户没有任何角色!");
-		String token = JwtTokenUtils.createToken(authentication.getName(), authentication.getAuthorities(), securityUserDetails.getUserRoles());
+		String token = JwtTokenUtils.createToken(authentication.getName(), authentication.getAuthorities());
 		User newUser = securityUserDetails.getUser();
 		if (newUser != null)
 			newUser.setPassword("");

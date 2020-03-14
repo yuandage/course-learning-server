@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "course_chapter")
-public class Chapter {
+public class CourseChapter {
 	@Id
 	private String id;//ID
 	private String courseId;//课程id

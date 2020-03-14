@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "course_comment")
-public class Comment {
+public class CourseComment {
 
 	@Id
 	private String id;//id

@@ -15,7 +15,6 @@ public class User implements Serializable {
 	private String username;//用户名
 	private String mobile;//手机号码
 	private String password;//密码
-	private String role;//角色
 	private String nickname;//昵称
 	private String sex;//性别
 	private Date birthday;//出生年月日
@@ -60,14 +59,6 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	public String getNickname() {

@@ -7,13 +7,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import yh.permission.entity.Permission;
 import yh.role.entity.Role;
 import yh.security.entity.SecurityUserDetails;
 import yh.user.entity.User;
 import yh.user.service.UserService;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class SecurityUserDetailsService implements UserDetailsService {
@@ -29,30 +31,30 @@ public class SecurityUserDetailsService implements UserDetailsService {
 		if (user == null) {
 			throw new BadCredentialsException("用户名不存在!");
 		}
-		List<Role> userRoles = roleAndPermissionService.getUserRole(user.getId());
+		List<Role> userRoles = roleAndPermissionService.getUserRoles(user.getId());
 		if (userRoles == null || userRoles.isEmpty())
 			return new SecurityUserDetails(user.getUsername(), user.getPassword(), null,user,null,null);
-		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
 
-		List<yh.permission.entity.Permission> userPermissions = roleAndPermissionService.getUserPermission(userRoles);
-		List<String> userRolesList = new ArrayList<>();
+		List<Permission> userPermissions = roleAndPermissionService.getUserPermissions(userRoles);
+		Set<String> userRolesSet = new HashSet<>();
 		if (userPermissions == null || userPermissions.isEmpty()) {
 			for (Role role : userRoles) {
-				userRolesList.add(role.getName());
+				userRolesSet.add(role.getName());
 				authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
 			}
-			return new SecurityUserDetails(user.getUsername(), user.getPassword(), null, user, userRolesList, null);
+			return new SecurityUserDetails(user.getUsername(), user.getPassword(), null, user, userRolesSet, null);
 		} else {
 			for (Role role : userRoles) {
-				userRolesList.add(role.getName());
+				userRolesSet.add(role.getName());
 				authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
 			}
-			List<String> userPermissionsList = new ArrayList<>();
-			for (yh.permission.entity.Permission permission : userPermissions) {
-				userPermissionsList.add(permission.getName());
+			Set<String> userPermissionsSet = new HashSet<>();
+			for (Permission permission : userPermissions) {
+				userPermissionsSet.add(permission.getName());
 				authorities.add(new SimpleGrantedAuthority(permission.getName()));
 			}
-			return new SecurityUserDetails(user.getUsername(), user.getPassword(), authorities, user, userRolesList, userPermissionsList);
+			return new SecurityUserDetails(user.getUsername(), user.getPassword(), authorities, user, userRolesSet, userPermissionsSet);
 		}
 	}
 

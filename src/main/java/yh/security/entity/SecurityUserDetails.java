@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import yh.user.entity.User;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 public class SecurityUserDetails implements UserDetails {
 
@@ -13,8 +13,8 @@ public class SecurityUserDetails implements UserDetails {
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
 	private User user;
-	private List<String> userRoles;
-	private List<String> userAuthorities;
+	private Set<String> userRoles;
+	private Set<String> userAuthorities;
 
 	public SecurityUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
 		this.username = username;
@@ -22,7 +22,7 @@ public class SecurityUserDetails implements UserDetails {
 		this.authorities = authorities;
 	}
 
-	public SecurityUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities, User user, List<String> userRoles, List<String> userAuthorities) {
+	public SecurityUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities, User user, Set<String> userRoles, Set<String> userAuthorities) {
 		this.username = username;
 		this.password = password;
 		this.authorities = authorities;
@@ -50,11 +50,11 @@ public class SecurityUserDetails implements UserDetails {
 		return user;
 	}
 
-	public List<String> getUserRoles() {
+	public Set<String> getUserRoles() {
 		return userRoles;
 	}
 
-	public List<String> getUserAuthorities() {
+	public Set<String> getUserAuthorities() {
 		return userAuthorities;
 	}
 
