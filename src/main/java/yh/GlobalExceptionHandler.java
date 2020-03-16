@@ -32,9 +32,4 @@ public class GlobalExceptionHandler {
 		return new Result(false, StatusCode.LOGIN_ERROR, "密码错误!", e.getMessage());
 	}
 
-	@ExceptionHandler(EmptyResultDataAccessException.class)
-	public Result handleEmptyResultDataAccessException(EmptyResultDataAccessException e) {
-		return new Result(false, StatusCode.LOGIN_ERROR, "查无此人!", e.getMessage());
-	}
-
 }

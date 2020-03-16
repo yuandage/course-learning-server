@@ -15,6 +15,7 @@ public class CourseResource {
 	private String name;//名称
 	private String type;//类型
 	private String summary;//简介
+	private String fileName;//文件名称
 	private String resUrl;//资料链接
 	private String createUser;//创建人
 	private Date createTime;//创建时间
@@ -59,6 +60,14 @@ public class CourseResource {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getResUrl() {

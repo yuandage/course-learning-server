@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import yh.course.dao.CourseVideoDao;
 import yh.course.entity.CourseVideo;
-import yh.util.IdWorker;
 
 import java.util.List;
 
@@ -14,8 +13,6 @@ import java.util.List;
 public class CourseVideoService {
 	@Autowired
 	private CourseVideoDao courseVideoDao;
-	@Autowired
-	private IdWorker idWorker;
 
 	public List<CourseVideo> findAll() {
 		return courseVideoDao.findAll();
@@ -26,7 +23,6 @@ public class CourseVideoService {
 	}
 
 	public void save(CourseVideo courseVideo) {
-		courseVideo.setId(idWorker.nextId() + "");//设置分布式ID
 		courseVideoDao.save(courseVideo);
 	}
 

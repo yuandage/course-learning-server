@@ -29,6 +29,10 @@ public class CourseChapterService {
 		return courseChapterDao.findByCourseIdAndParentId(courseId, parentId);
 	}
 
+	public List<CourseChapter> findByCourseId(String courseId) {
+		return courseChapterDao.findByCourseId(courseId);
+	}
+
 	public void save(CourseChapter courseChapter) {
 		courseChapter.setId(idWorker.nextId() + "");//设置分布式ID
 		courseChapterDao.save(courseChapter);

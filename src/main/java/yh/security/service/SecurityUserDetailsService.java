@@ -11,6 +11,7 @@ import yh.permission.entity.Permission;
 import yh.role.entity.Role;
 import yh.security.entity.SecurityUserDetails;
 import yh.user.entity.User;
+import yh.user.service.UserRoleService;
 import yh.user.service.UserService;
 
 import java.util.HashSet;
@@ -23,7 +24,7 @@ public class SecurityUserDetailsService implements UserDetailsService {
 	@Autowired
 	UserService userService;
 	@Autowired
-	RoleAndPermissionService roleAndPermissionService;
+	UserRoleService userRoleService;
 
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
@@ -31,12 +32,12 @@ public class SecurityUserDetailsService implements UserDetailsService {
 		if (user == null) {
 			throw new BadCredentialsException("用户名不存在!");
 		}
-		List<Role> userRoles = roleAndPermissionService.getUserRoles(user.getId());
+		List<Role> userRoles = userRoleService.getUserRoles(user.getId());
 		if (userRoles == null || userRoles.isEmpty())
 			return new SecurityUserDetails(user.getUsername(), user.getPassword(), null,user,null,null);
 		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
 
-		List<Permission> userPermissions = roleAndPermissionService.getUserPermissions(userRoles);
+		List<Permission> userPermissions = userRoleService.getUserPermissions(userRoles);
 		Set<String> userRolesSet = new HashSet<>();
 		if (userPermissions == null || userPermissions.isEmpty()) {
 			for (Role role : userRoles) {

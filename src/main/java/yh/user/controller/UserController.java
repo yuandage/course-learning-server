@@ -13,6 +13,7 @@ import yh.util.JwtTokenUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @RestController
 @CrossOrigin
@@ -76,7 +77,7 @@ public class UserController {
 		return new Result(true, StatusCode.SUCCESS, "注册成功");
 	}
 
-	//用户登录
+	//客户端登录
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public Result login(@RequestBody User user) {
 		if (user == null)
@@ -85,14 +86,43 @@ public class UserController {
 		Authentication authentication = userService.login(user);
 		SecurityUserDetails securityUserDetails = (SecurityUserDetails) authentication.getPrincipal();
 		if (securityUserDetails.getUserRoles() == null)
-			return new Result(false, StatusCode.LOGIN_ERROR, "登录失败!","用户没有任何角色!");
+			return new Result(false, StatusCode.LOGIN_ERROR, "登录失败!", "用户没有任何角色!");
+
 		String token = JwtTokenUtils.createToken(authentication.getName(), authentication.getAuthorities());
 		User newUser = securityUserDetails.getUser();
-		if (newUser != null)
-			newUser.setPassword("");
+		newUser.setPassword("");
+
 		Map<String, Object> userInfo = new HashMap<>();
 		userInfo.put("user", newUser);
 		userInfo.put("roles", securityUserDetails.getUserRoles());
+		userInfo.put("authorities", securityUserDetails.getUserAuthorities());
+		userInfo.put("token", token);
+		return new Result(true, StatusCode.SUCCESS, "登录成功", userInfo);
+	}
+
+	//管理端登录
+	@RequestMapping(value = "/adminLogin", method = RequestMethod.POST)
+	public Result adminLogin(@RequestBody User user) {
+		if (user == null)
+			return new Result(false, StatusCode.LOGIN_ERROR, "登录失败", "请输入用户名和密码");
+		// 执行登录认证过程
+		Authentication authentication = userService.login(user);
+		SecurityUserDetails securityUserDetails = (SecurityUserDetails) authentication.getPrincipal();
+		Set<String> userRoles = securityUserDetails.getUserRoles();
+		if (userRoles == null)
+			return new Result(false, StatusCode.LOGIN_ERROR, "登录失败!", "用户没有任何角色!");
+		boolean hasRoles = userRoles.contains("admin") || userRoles.contains("dev") || userRoles.contains("test") || userRoles.contains("teacher");
+		if (!hasRoles) {
+			return new Result(false, StatusCode.LOGIN_ERROR, "登录失败!", "权限不足!");
+		}
+
+		String token = JwtTokenUtils.createToken(authentication.getName(), authentication.getAuthorities());
+		User newUser = securityUserDetails.getUser();
+		newUser.setPassword("");
+
+		Map<String, Object> userInfo = new HashMap<>();
+		userInfo.put("user", newUser);
+		userInfo.put("roles", userRoles);
 		userInfo.put("authorities", securityUserDetails.getUserAuthorities());
 		userInfo.put("token", token);
 		return new Result(true, StatusCode.SUCCESS, "登录成功", userInfo);

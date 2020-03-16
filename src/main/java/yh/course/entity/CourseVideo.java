@@ -12,11 +12,12 @@ public class CourseVideo {
 	@Id
 	private String id;//ID
 	private String courseId;//课程id
+	private String sectionId;//课程id
 	private String name;//名称
 	private String summary;//简介
 	private String time;//视频时长
 	private String size;//视频大小
-	private String url;//视频链接
+	private String videoUrl;//视频链接
 	private String createUser;//创建人
 	private Date createTime;//创建时间
 	private String updateUser;//更新人
@@ -36,6 +37,14 @@ public class CourseVideo {
 
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
+	}
+
+	public String getSectionId() {
+		return sectionId;
+	}
+
+	public void setSectionId(String sectionId) {
+		this.sectionId = sectionId;
 	}
 
 	public String getName() {
@@ -70,12 +79,12 @@ public class CourseVideo {
 		this.size = size;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getVideoUrl() {
+		return videoUrl;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setVideoUrl(String url) {
+		this.videoUrl = url;
 	}
 
 	public String getCreateUser() {

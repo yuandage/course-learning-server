@@ -6,7 +6,7 @@ import yh.common.Result;
 import yh.common.StatusCode;
 import yh.role.entity.RolePermission;
 import yh.role.service.RolePermissionService;
-import yh.security.service.RoleAndPermissionService;
+import yh.user.service.UserRoleService;
 
 @RestController
 @CrossOrigin
@@ -15,7 +15,7 @@ public class RolePermissionController {
 	@Autowired
 	RolePermissionService rolePermissionService;
 	@Autowired
-	RoleAndPermissionService roleAndPermissionService;
+	UserRoleService userRoleService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Result findAll() {
@@ -29,7 +29,7 @@ public class RolePermissionController {
 
 	@RequestMapping(value = "/roleId/{roleId}", method = RequestMethod.GET)
 	public Result findUserRoles(@PathVariable String roleId) {
-		return new Result(true, StatusCode.SUCCESS, "查询成功", roleAndPermissionService.getRolePermissions(roleId));
+		return new Result(true, StatusCode.SUCCESS, "查询成功", userRoleService.getRolePermissions(roleId));
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

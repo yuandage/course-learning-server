@@ -31,6 +31,11 @@ public class CourseChapterController {
         return new Result(true, StatusCode.SUCCESS, "查询成功", courseChapterService.findByCourseIdAndParentId(courseId,parentId));
     }
 
+    @RequestMapping(value = "/courseId/{courseId}", method = RequestMethod.GET)
+    public Result findByCourseId(@PathVariable String courseId) {
+        return new Result(true, StatusCode.SUCCESS, "查询成功", courseChapterService.findByCourseId(courseId));
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public Result save(@RequestBody CourseChapter courseChapter) {
         courseChapterService.save(courseChapter);

@@ -56,9 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable()
 				.authorizeRequests()
 				// 登录和注册接口
-				.antMatchers("/user/login", "/user/register").permitAll()
+				.antMatchers("/user/login", "/user/adminLogin", "/user/register").permitAll()
 				//首页需要的数据
-				.antMatchers(HttpMethod.GET,"/course/**", "/subject/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/course/**", "/subject/**").permitAll()
 				// swagger
 				.antMatchers("/swagger-ui.html").permitAll()
 				.antMatchers("/swagger-resources/**").permitAll()

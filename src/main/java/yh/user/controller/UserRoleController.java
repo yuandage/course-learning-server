@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import yh.common.Result;
 import yh.common.StatusCode;
-import yh.security.service.RoleAndPermissionService;
 import yh.user.entity.UserRole;
 import yh.user.service.UserRoleService;
 
@@ -14,8 +13,6 @@ import yh.user.service.UserRoleService;
 public class UserRoleController {
 	@Autowired
 	UserRoleService userRoleService;
-	@Autowired
-	RoleAndPermissionService roleAndPermissionService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Result findAll() {
@@ -29,7 +26,7 @@ public class UserRoleController {
 
 	@RequestMapping(value = "/userId/{userId}", method = RequestMethod.GET)
 	public Result findUserRoles(@PathVariable String userId) {
-		return new Result(true, StatusCode.SUCCESS, "查询成功", roleAndPermissionService.getUserRoles(userId));
+		return new Result(true, StatusCode.SUCCESS, "查询成功", userRoleService.getUserRoles(userId));
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

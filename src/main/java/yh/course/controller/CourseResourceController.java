@@ -9,6 +9,7 @@ import yh.common.Result;
 import yh.common.StatusCode;
 import yh.course.entity.CourseResource;
 import yh.course.service.CourseResourceService;
+import yh.util.IdWorker;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,8 @@ public class CourseResourceController {
 
 	@Autowired
 	private CourseResourceService courseResourceService;
+	@Autowired
+	IdWorker idWorker;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Result findAll() {
@@ -54,6 +57,34 @@ public class CourseResourceController {
 	public Result deleteById(@PathVariable String id) {
 		courseResourceService.deleteById(id);
 		return new Result(true, StatusCode.SUCCESS, "删除成功");
+	}
+
+	@RequestMapping(value = "/resourceUpload", method = RequestMethod.POST)
+	public Result resourceUpload(CourseResource courseResource, @RequestParam("file") MultipartFile multipartFile) {
+		if (multipartFile == null)
+			return new Result(false, StatusCode.ERROR, "文件上传失败");
+		File path = new File("src/main/resources/course-resource");
+
+		System.out.println("path:" + path.getAbsolutePath());
+		String id = idWorker.nextId() + "";
+		String originalFileName = multipartFile.getOriginalFilename();
+		String fileNamePrefix = originalFileName.substring(0, originalFileName.lastIndexOf(".")) + "-" + id;
+		String newFileName = fileNamePrefix + originalFileName.substring(originalFileName.lastIndexOf("."));
+		File dir = new File(path.getAbsolutePath());
+		if (!dir.exists())  //如果文件目录不存在
+			dir.mkdirs();
+		File serverFile = new File(path.getAbsolutePath() + "/" + newFileName);
+		try { //上传
+			multipartFile.transferTo(serverFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		courseResource.setId(id);
+		courseResource.setFileName(newFileName);
+		courseResource.setResUrl("http://localhost:9000/resource/download/" + id);
+		courseResourceService.save(courseResource);
+
+		return new Result(true, StatusCode.SUCCESS, "文件上传成功", newFileName);
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
