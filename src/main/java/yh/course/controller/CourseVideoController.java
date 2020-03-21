@@ -6,11 +6,18 @@ import org.springframework.web.multipart.MultipartFile;
 import yh.common.Result;
 import yh.common.StatusCode;
 import yh.course.entity.CourseVideo;
+import yh.course.handler.ResourceHandler;
 import yh.course.service.CourseVideoService;
 import yh.util.IdWorker;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RestController
 @CrossOrigin
@@ -21,6 +28,8 @@ public class CourseVideoController {
     CourseVideoService courseVideoService;
     @Autowired
     IdWorker idWorker;
+    @Autowired
+    ResourceHandler resourceHandler;
 
     @RequestMapping(method = RequestMethod.GET)
     public Result findAll() {
@@ -55,6 +64,29 @@ public class CourseVideoController {
         return new Result(true, StatusCode.SUCCESS, "删除成功");
     }
 
+    //视频播放
+    @GetMapping("/play")
+    public void playVideo(@RequestParam String courseId, @RequestParam String sectionId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        CourseVideo courseVideo = courseVideoService.findByCourseIdAndSectionId(courseId, sectionId);
+        if (courseVideo != null) {
+            String relativePath = "src/main/resources/course-video/";
+            String fileName = courseVideo.getFileName();
+            Path filePath = Paths.get(relativePath+fileName);
+
+            if (Files.exists(filePath)) {
+                String mimeType = Files.probeContentType(filePath);
+                if (mimeType != null && !"".equals(mimeType)) {
+                    response.setContentType(mimeType);
+                }
+                resourceHandler.setFilePath(filePath);
+                resourceHandler.handleRequest(request, response);
+            }
+        }
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+    }
+
+    //视频上传
     @RequestMapping(value = "/videoUpload", method = RequestMethod.POST)
     public Result videoUpload(CourseVideo courseVideo, @RequestParam("file") MultipartFile multipartFile) {
         if (multipartFile == null)
@@ -77,6 +109,7 @@ public class CourseVideoController {
         }
         courseVideo.setId(id);
         courseVideo.setVideoUrl("http://localhost:9000/resource/download/" + id);
+        courseVideo.setFileName(newFileName);
         courseVideoService.save(courseVideo);
 
         return new Result(true, StatusCode.SUCCESS, "文件上传成功", newFileName);

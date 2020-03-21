@@ -29,3 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+src/main/resources/course-resource/**
+src/main/resources/course-video/**

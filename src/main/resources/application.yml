@@ -11,5 +11,5 @@ spring:
     show-sql: true
   servlet:
     multipart:
-      max-file-size: 10MB      # Single file max size
-      max-request-size: 50MB   # All files max size
+      max-file-size: 100MB      # Single file max size
+      max-request-size: 100MB   # All files max size

@@ -17,6 +17,7 @@ public class CourseVideo {
 	private String summary;//简介
 	private String time;//视频时长
 	private String size;//视频大小
+	private String fileName;//文件名称
 	private String videoUrl;//视频链接
 	private String createUser;//创建人
 	private Date createTime;//创建时间
@@ -77,6 +78,14 @@ public class CourseVideo {
 
 	public void setSize(String size) {
 		this.size = size;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getVideoUrl() {

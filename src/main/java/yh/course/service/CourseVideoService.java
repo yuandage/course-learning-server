@@ -11,30 +11,34 @@ import java.util.List;
 @Service
 @Transactional
 public class CourseVideoService {
-	@Autowired
-	private CourseVideoDao courseVideoDao;
+    @Autowired
+    private CourseVideoDao courseVideoDao;
 
-	public List<CourseVideo> findAll() {
-		return courseVideoDao.findAll();
-	}
+    public List<CourseVideo> findAll() {
+        return courseVideoDao.findAll();
+    }
 
-	public CourseVideo findById(String id) {
-		return courseVideoDao.findById(id).orElse(null);
-	}
+    public CourseVideo findById(String id) {
+        return courseVideoDao.findById(id).orElse(null);
+    }
 
-	public void save(CourseVideo courseVideo) {
-		courseVideoDao.save(courseVideo);
-	}
+    public void save(CourseVideo courseVideo) {
+        courseVideoDao.save(courseVideo);
+    }
 
-	public void update(CourseVideo courseVideo) {
-		courseVideoDao.save(courseVideo);
-	}
+    public void update(CourseVideo courseVideo) {
+        courseVideoDao.save(courseVideo);
+    }
 
-	public void deleteById(String id) {
-		courseVideoDao.deleteById(id);
-	}
+    public void deleteById(String id) {
+        courseVideoDao.deleteById(id);
+    }
 
-	public List<CourseVideo> findByCourseId(String courseId) {
-		return courseVideoDao.findByCourseId(courseId);
-	}
+    public List<CourseVideo> findByCourseId(String courseId) {
+        return courseVideoDao.findByCourseId(courseId);
+    }
+
+    public CourseVideo findByCourseIdAndSectionId(String courseId, String sectionId) {
+        return courseVideoDao.findByCourseIdAndSectionId(courseId, sectionId);
+    }
 }
