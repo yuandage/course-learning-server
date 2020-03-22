@@ -1,6 +1,7 @@
 package yh.course.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
@@ -42,24 +43,28 @@ public class CourseResourceController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
+	@PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
 	public Result save(@RequestBody CourseResource courseResource) {
 		courseResourceService.save(courseResource);
 		return new Result(true, StatusCode.SUCCESS, "添加成功");
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
 	public Result update(@PathVariable String id, @RequestBody CourseResource courseResource) {
 		courseResourceService.update(courseResource);
 		return new Result(true, StatusCode.SUCCESS, "更新成功");
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
 	public Result deleteById(@PathVariable String id) {
 		courseResourceService.deleteById(id);
 		return new Result(true, StatusCode.SUCCESS, "删除成功");
 	}
 
 	@RequestMapping(value = "/resourceUpload", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('upload')")
 	public Result resourceUpload(CourseResource courseResource, @RequestParam("file") MultipartFile multipartFile) {
 		if (multipartFile == null)
 			return new Result(false, StatusCode.ERROR, "文件上传失败");
@@ -88,6 +93,7 @@ public class CourseResourceController {
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	@PreAuthorize("hasAuthority('upload')")
 	public Result fileUpload(CourseResource courseResource, @RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
 		Date date = new Date();
 		courseResource.setCreateTime(date);
@@ -119,6 +125,7 @@ public class CourseResourceController {
 	}
 
 	@RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('download')")
 	public void fileDownload(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		File path = null;
 		try {

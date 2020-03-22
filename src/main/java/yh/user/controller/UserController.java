@@ -29,12 +29,14 @@ public class UserController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
+	@PreAuthorize("hasAnyRole('admin','dev','test')")
 	public Result save(@RequestBody User user) {
 		userService.save(user);
 		return new Result(true, StatusCode.SUCCESS, "添加成功");
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@PreAuthorize("hasAnyRole('admin','dev','test')")
 	public Result update(@PathVariable String id, @RequestBody User user) {
 		userService.update(user);
 		return new Result(true, StatusCode.SUCCESS, "更新成功");
@@ -58,7 +60,6 @@ public class UserController {
 
 	//用户信息查询
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-	@PreAuthorize("hasAnyRole('admin','developer')")
 	public Result findById(@PathVariable String userId) {
 		User user = userService.findById(userId);
 		if (user == null) {

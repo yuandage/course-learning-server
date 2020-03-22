@@ -1,6 +1,7 @@
 package yh.course.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import yh.common.Result;
 import yh.common.StatusCode;
@@ -31,18 +32,21 @@ public class CourseCommentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
+    @PreAuthorize("hasAuthority('add')")
     public Result save(@RequestBody CourseComment courseComment) {
         courseCommentService.save(courseComment);
         return new Result(true, StatusCode.SUCCESS, "添加成功");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result update(@PathVariable String id, @RequestBody CourseComment courseComment) {
         courseCommentService.update(courseComment);
         return new Result(true, StatusCode.SUCCESS, "更新成功");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result deleteById(@PathVariable String id) {
         courseCommentService.deleteById(id);
         return new Result(true, StatusCode.SUCCESS, "删除成功");

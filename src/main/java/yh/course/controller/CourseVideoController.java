@@ -1,6 +1,7 @@
 package yh.course.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import yh.common.Result;
@@ -47,18 +48,21 @@ public class CourseVideoController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result save(@RequestBody CourseVideo courseVideo) {
         courseVideoService.save(courseVideo);
         return new Result(true, StatusCode.SUCCESS, "添加成功");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result update(@PathVariable String id, @RequestBody CourseVideo courseVideo) {
         courseVideoService.update(courseVideo);
         return new Result(true, StatusCode.SUCCESS, "更新成功");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result deleteById(@PathVariable String id) {
         courseVideoService.deleteById(id);
         return new Result(true, StatusCode.SUCCESS, "删除成功");
@@ -88,6 +92,7 @@ public class CourseVideoController {
 
     //视频上传
     @RequestMapping(value = "/videoUpload", method = RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result videoUpload(CourseVideo courseVideo, @RequestParam("file") MultipartFile multipartFile) {
         if (multipartFile == null)
             return new Result(false, StatusCode.ERROR, "文件上传失败");

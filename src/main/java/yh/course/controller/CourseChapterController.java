@@ -1,6 +1,7 @@
 package yh.course.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import yh.common.Result;
 import yh.common.StatusCode;
@@ -37,18 +38,21 @@ public class CourseChapterController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result save(@RequestBody CourseChapter courseChapter) {
         courseChapterService.save(courseChapter);
         return new Result(true, StatusCode.SUCCESS, "添加成功");
     }
 
     @RequestMapping(value = "/{chapterId}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result update(@PathVariable String chapterId, @RequestBody CourseChapter courseChapter) {
         courseChapterService.update(courseChapter);
         return new Result(true, StatusCode.SUCCESS, "更新成功");
     }
 
     @RequestMapping(value = "/{chapterId}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result deleteById(@PathVariable String chapterId) {
         courseChapterService.deleteById(chapterId);
         return new Result(true, StatusCode.SUCCESS, "删除成功");

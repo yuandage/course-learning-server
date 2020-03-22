@@ -62,18 +62,21 @@ public class CourseController {
 
 
     @RequestMapping(method = RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result save(@RequestBody Course course) {
         courseService.save(course);
         return new Result(true, StatusCode.SUCCESS, "添加成功");
     }
 
     @RequestMapping(value = "/{courseId}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result update(@PathVariable String courseId, @RequestBody Course course) {
         courseService.update(course);
         return new Result(true, StatusCode.SUCCESS, "更新成功");
     }
 
     @RequestMapping(value = "/{courseId}", method = RequestMethod.DELETE)
+    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result deleteById(@PathVariable String courseId) {
         courseService.deleteById(courseId);
         return new Result(true, StatusCode.SUCCESS, "删除成功");
