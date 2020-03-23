@@ -9,5 +9,7 @@ public interface CourseClassificationDao extends JpaRepository<CourseClassificat
 	int countByParentIdIsNull();
 
 	List<CourseClassification> findByParentIdNotNull();
+
+	List<CourseClassification> findByParentId(String parentId);
 }
 

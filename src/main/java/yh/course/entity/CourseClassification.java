@@ -10,9 +10,9 @@ import java.util.List;
 @Table(name = "course_classification")
 public class CourseClassification {
 	@Id
-	private Integer id;//ID
+	private String id;//ID
 	private String name;//名称
-	private Integer parentId;//父节点
+	private String parentId;//父节点
 	@Transient
 	private List<CourseClassification> courseClassificationList;
 
@@ -24,11 +24,11 @@ public class CourseClassification {
 		this.courseClassificationList = courseClassificationList;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -40,11 +40,11 @@ public class CourseClassification {
 		this.name = name;
 	}
 
-	public Integer getParentId() {
+	public String getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(Integer parentId) {
+	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
 }
