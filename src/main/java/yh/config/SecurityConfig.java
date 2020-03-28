@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				// 视频播放
 				.antMatchers("/video/play").permitAll()
 				//首页需要的数据
-				.antMatchers(HttpMethod.GET, "/course/**", "/subject/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/course/**", "/category/**").permitAll()
 				// swagger
 				.antMatchers("/swagger-ui.html").permitAll()
 				.antMatchers("/swagger-resources/**").permitAll()
