@@ -65,6 +65,7 @@ public class UserService {
 	}
 
 	public void update(User user) {
+		user.setPassword(encoder.encode(user.getPassword()));
 		userDao.save(user);
 	}
 

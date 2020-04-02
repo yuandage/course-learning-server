@@ -11,28 +11,11 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 28/03/2020 18:43:19
+ Date: 29/03/2020 11:15:45
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for admin
--- ----------------------------
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin`  (
-  `id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
-  `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登陆名称',
-  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
-  `state` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '状态',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '管理员' ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of admin
--- ----------------------------
-INSERT INTO `admin` VALUES ('1172709569248497664', 'yh', '$2a$10$iTiXgK8D5VgnuJ2BcXtWq.aS/FWGjzLcku9bgchnNm53HNnWIs0Fi', '1');
 
 -- ----------------------------
 -- Table structure for course
@@ -423,8 +406,8 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
   `id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'ID',
   `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
-  `mobile` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号码',
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
+  `mobile` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号码',
   `nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '昵称',
   `sex` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '性别',
   `birthday` datetime(0) NULL DEFAULT NULL COMMENT '出生年月日',
@@ -444,12 +427,12 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1234119223710715901', 'admin', '18608212510', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '超管', '男', NULL, NULL, '1027928543@qq.com', '2020-03-06 11:10:40', '2020-03-06 11:10:40', '2020-03-06 11:10:40', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1234119223710715902', 'dev', '18608212510', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '开发人员', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1234119223710715903', 'test', '18608212510', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '测试', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-07 17:44:21', '2020-03-07 17:44:21', '2020-03-07 17:44:21', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1234119223710715904', 'teacher', '18608212510', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '教师', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1234119223710715905', 'student', '18608212510', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '学生', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1237767310413008896', 'wcndy', '17738285197', '$2a$10$lm1OcRGu76rQCSr1I6X2Peh3W5nDdz5VGm1oLhj9VkWtP5iYabbOK', '我问候你大爷', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715901', 'admin', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '超管', '男', NULL, NULL, '1027928543@qq.com', '2020-03-06 11:10:40', '2020-03-06 11:10:40', '2020-03-06 11:10:40', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715902', 'dev', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '开发人员', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715903', 'test', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '测试', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-07 17:44:21', '2020-03-07 17:44:21', '2020-03-07 17:44:21', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715904', 'teacher', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '教师', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715905', 'student', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '学生', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1237767310413008896', 'wcndy', '$2a$10$lm1OcRGu76rQCSr1I6X2Peh3W5nDdz5VGm1oLhj9VkWtP5iYabbOK', '17738285197', '我问候你大爷', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
 
 -- ----------------------------
 -- Table structure for user_course

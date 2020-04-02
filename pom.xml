@@ -11,11 +11,15 @@
     <groupId>com.yh</groupId>
     <artifactId>course-learning</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
     <name>course-learning-server</name>
     <description>Course Learning and Testing Platform project for Spring Boot</description>
 
     <properties>
-        <java.version>13</java.version>
+        <java.version>8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -79,7 +83,50 @@
 
     </dependencies>
 
+    <build>
+        <finalName>${project.name}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <target>${maven.compiler.target}</target>
+                        <source>${maven.compiler.source}</source>
+                        <encoding>UTF-8</encoding>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+                <!--复制jar包到指定目录-->
+                <plugin>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>course-learning-package</id>
+                            <phase>package</phase>
+                            <configuration>
+                                <target>
+                                    <copy todir="docker" file="target/${project.name}.${project.packaging}" />
+                                </target>
+                            </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
 
+    </build>
 
     <repositories>
         <repository>
