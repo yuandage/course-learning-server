@@ -4,6 +4,7 @@ target/
 !**/src/main/**
 src/test/**
 docker/*.jar
+logs
 
 ### STS ###
 .apt_generated

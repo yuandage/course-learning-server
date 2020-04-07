@@ -14,8 +14,14 @@
  Date: 29/03/2020 11:15:45
 */
 
+DROP DATABASE IF EXISTS `course_learning`;
+
+CREATE DATABASE  `course_learning` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+USE `course_learning`;
 
 -- ----------------------------
 -- Table structure for course

@@ -47,6 +47,11 @@ public class CourseVideoController {
         return new Result(true, StatusCode.SUCCESS, "查询成功", courseVideoService.findByCourseId(id));
     }
 
+    @GetMapping("/info/{courseId}/{sectionId}")
+    public Result findByCourseIdAndSectionId(@PathVariable String courseId,@PathVariable String sectionId) {
+        return new Result(true, StatusCode.SUCCESS, "查询成功", courseVideoService.findByCourseIdAndSectionId(courseId,sectionId));
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
     public Result save(@RequestBody CourseVideo courseVideo) {
