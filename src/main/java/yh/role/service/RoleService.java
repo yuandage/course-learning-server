@@ -26,7 +26,7 @@ public class RoleService {
 	}
 
 	public void save(Role role) {
-		role.setId(idWorker.nextId() + "");//设置分布式ID
+		role.setId(idWorker.nextStringId());//设置分布式ID
 		roleDao.save(role);
 	}
 

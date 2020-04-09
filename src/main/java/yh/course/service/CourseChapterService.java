@@ -34,7 +34,7 @@ public class CourseChapterService {
 	}
 
 	public void save(CourseChapter courseChapter) {
-		courseChapter.setId(idWorker.nextId() + "");//设置分布式ID
+		courseChapter.setId(idWorker.nextStringId());//设置分布式ID
 		courseChapterDao.save(courseChapter);
 	}
 

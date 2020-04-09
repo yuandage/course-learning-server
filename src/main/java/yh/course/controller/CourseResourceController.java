@@ -71,7 +71,7 @@ public class CourseResourceController {
 		File path = new File("src/main/resources/course-resource");
 
 		System.out.println("path:" + path.getAbsolutePath());
-		String id = idWorker.nextId() + "";
+		String id = idWorker.nextStringId();
 		String originalFileName = multipartFile.getOriginalFilename();
 		String fileNamePrefix = originalFileName.substring(0, originalFileName.lastIndexOf(".")) + "-" + id;
 		String newFileName = fileNamePrefix + originalFileName.substring(originalFileName.lastIndexOf("."));

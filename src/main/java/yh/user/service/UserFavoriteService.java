@@ -26,7 +26,7 @@ public class UserFavoriteService {
 	}
 
 	public String save(UserFavorite userFavorite) {
-		String id = idWorker.nextId() + "";
+		String id = idWorker.nextStringId();
 		userFavorite.setId(id);//设置分布式ID
 		userFavoriteDao.save(userFavorite);
 		return id;

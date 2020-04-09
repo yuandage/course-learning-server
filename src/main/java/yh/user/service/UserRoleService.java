@@ -40,7 +40,7 @@ public class UserRoleService {
 	}
 
 	public void save(UserRole userRole) {
-		userRole.setId(idWorker.nextId() + "");//设置分布式ID
+		userRole.setId(idWorker.nextStringId());//设置分布式ID
 		userRoleDao.save(userRole);
 	}
 

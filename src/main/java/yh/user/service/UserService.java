@@ -35,7 +35,7 @@ public class UserService {
 		if (user1 != null) {
 			throw new RuntimeException("用户名已存在!");
 		}
-		user.setId(idWorker.nextId() + "");
+		user.setId(idWorker.nextStringId());
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setFollowCount(0);//关注数
 		user.setFansCount(0);//粉丝数

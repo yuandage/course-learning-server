@@ -102,6 +102,15 @@ public class IdWorker {
 		return nextId;
 	}
 
+	/**
+	 * 返回String类型的id
+	 * @param
+	 * @return
+	 */
+	public String nextStringId(){
+		return nextId()+"";
+	}
+
 	private long tilNextMillis(final long lastTimestamp) {
 		long timestamp = this.timeGen();
 		while (timestamp <= lastTimestamp) {

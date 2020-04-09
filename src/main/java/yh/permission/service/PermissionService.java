@@ -26,7 +26,7 @@ public class PermissionService {
 	}
 
 	public void save(Permission permission) {
-		permission.setId(idWorker.nextId() + "");//设置分布式ID
+		permission.setId(idWorker.nextStringId());//设置分布式ID
 		permissionDao.save(permission);
 	}
 

@@ -26,7 +26,7 @@ public class RolePermissionService {
 	}
 
 	public void save(RolePermission rolePermission) {
-		rolePermission.setId(idWorker.nextId() + "");//设置分布式ID
+		rolePermission.setId(idWorker.nextStringId());//设置分布式ID
 		rolePermissionDao.save(rolePermission);
 	}
 

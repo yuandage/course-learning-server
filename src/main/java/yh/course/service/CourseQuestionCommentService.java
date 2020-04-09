@@ -26,7 +26,7 @@ public class CourseQuestionCommentService {
 	}
 
 	public void save(CourseQuestionComment courseQuestionComment) {
-		courseQuestionComment.setId(idWorker.nextId() + "");//设置分布式ID
+		courseQuestionComment.setId(idWorker.nextStringId());//设置分布式ID
 		this.courseQuestionCommentDao.save(courseQuestionComment);
 	}
 

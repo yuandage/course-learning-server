@@ -38,7 +38,7 @@ public class CourseCategoryService {
     }
 
     public void save(CourseCategory courseCategory) {
-        courseCategory.setId(idWorker.nextId() + "");//设置分布式ID
+        courseCategory.setId(idWorker.nextStringId());//设置分布式ID
         courseCategoryDao.save(courseCategory);
     }
 

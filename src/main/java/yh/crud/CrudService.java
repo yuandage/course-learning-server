@@ -24,7 +24,7 @@ public class CrudService {
 	}
 
 	public void save(Label label) {
-		label.setId(idWorker.nextId() + "");//设置分布式ID
+		label.setId(idWorker.nextStringId());//设置分布式ID
 		dao.save(label);
 	}
 
