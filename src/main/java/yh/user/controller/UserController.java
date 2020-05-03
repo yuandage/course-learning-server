@@ -36,7 +36,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	@PreAuthorize("hasAnyRole('admin','dev','test')")
+	@PreAuthorize("hasAnyAuthority('admin','dev','test','s_user_edit')")
 	public Result update(@PathVariable String id, @RequestBody User user) {
 		userService.update(user);
 		return new Result(true, StatusCode.SUCCESS, "更新成功");

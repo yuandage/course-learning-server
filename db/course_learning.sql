@@ -11,17 +11,11 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 29/03/2020 11:15:45
+ Date: 12/04/2020 22:43:21
 */
-
-DROP DATABASE IF EXISTS `course_learning`;
-
-CREATE DATABASE  `course_learning` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
-USE `course_learning`;
 
 -- ----------------------------
 -- Table structure for course
@@ -45,6 +39,7 @@ CREATE TABLE `course`  (
 -- ----------------------------
 INSERT INTO `course` VALUES ('1', '微机原理与接口技术', '微机原理与接口技术简介', '这是目录', '71', '1', 'https://img2.sycdn.imooc.com/szimg/5dce41e70819b56b06000338-360-202.jpg', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('10', 'Office学习', '二级office学习', '这是目录', '22', NULL, 'https://img1.mukewang.com/szimg/5e26a9f909ef95b512000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
+INSERT INTO `course` VALUES ('101', 'Java入门第一季', '本教程从Java环境搭建、工具使用、基础语法开始，带你入门', '本教程为Java入门第一季，欢迎来到精彩的Java编程世界！Java语言已经成为当前软件开发行业中主流的开发语言。本教程将介绍Java环境搭建、工具使用、基础语法。带领大家一步一步的踏入Java达人殿堂！Let’s go!', '43', '1', 'https://img1.sycdn.imooc.com/szimg/5df1deec09ba554712000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('11', '三级数据库设计', '三级数据库设计简介', '这是目录', '23', NULL, 'https://img1.mukewang.com/szimg/5e26a9f909ef95b512000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('12', '三级网络', '三级网络简介', '这是目录', '24', NULL, 'https://img1.mukewang.com/szimg/5e26a9f909ef95b512000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('13', '三级信息安全', '三级信息安全简介', '这是目录', '25', NULL, 'https://img1.mukewang.com/szimg/5e26a9f909ef95b512000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
@@ -58,7 +53,6 @@ INSERT INTO `course` VALUES ('20', 'C语言', '二级C语言', '很多的目录'
 INSERT INTO `course` VALUES ('3', 'Vue.js设计', 'Vue.js设计简介', '这是目录', '35', '1', 'https://img4.sycdn.imooc.com/szimg/5dc9047a09bae31e12000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('4', 'C语言程序设计', 'C语言程序设计简介', '这是目录', '41', '1', 'https://img3.sycdn.imooc.com/szimg/5d25400a08fa408c06000338-360-202.jpg', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('5', 'C++语言程序设计', 'C++语言程序设计简介', '这是目录', '42', '1', 'https://img3.sycdn.imooc.com/szimg/5dde5881088dd8da06000338-360-202.jpg', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
-INSERT INTO `course` VALUES ('6', 'Java入门第一季', '本教程从Java环境搭建、工具使用、基础语法开始，带你入门', '本教程为Java入门第一季，欢迎来到精彩的Java编程世界！Java语言已经成为当前软件开发行业中主流的开发语言。本教程将介绍Java环境搭建、工具使用、基础语法。带领大家一步一步的踏入Java达人殿堂！Let’s go!', '43', '1', 'https://img1.sycdn.imooc.com/szimg/5df1deec09ba554712000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('7', '数据结构设计', '数据结构简介', '这是目录', '51', '1', 'https://img1.sycdn.imooc.com/szimg/5ad05dc00001eae705400300-360-202.jpg', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('8', '算法分析与实现', '算法分析与实现简介', '这是目录', '52', '1', 'https://img3.sycdn.imooc.com/szimg/5a39cd3f0001c09805400300-360-202.jpg', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
 INSERT INTO `course` VALUES ('9', '数据库基础设计', '数据库基础设计简介', '这是目录', '61', '', 'https://img1.mukewang.com/szimg/5e26a9f909ef95b512000676-360-202.png', '2019-09-26 15:21:11', '2019-09-26 15:21:14');
@@ -96,12 +90,12 @@ INSERT INTO `course_category` VALUES ('4', '数据结构与算法分析', '0');
 INSERT INTO `course_category` VALUES ('41', 'C语言程序设计', '3');
 INSERT INTO `course_category` VALUES ('42', 'C++语言程序设计', '3');
 INSERT INTO `course_category` VALUES ('43', 'JAVA语言程序设计', '3');
-INSERT INTO `course_category` VALUES ('5', '数据库设计', '0');
+INSERT INTO `course_category` VALUES ('5', '数据存储', '0');
 INSERT INTO `course_category` VALUES ('51', '数据结构', '4');
 INSERT INTO `course_category` VALUES ('52', '算法分析与实现', '4');
 INSERT INTO `course_category` VALUES ('6', '计算机基础', '0');
 INSERT INTO `course_category` VALUES ('61', '数据库基础', '5');
-INSERT INTO `course_category` VALUES ('71', '微机原理与接口技术', '6');
+INSERT INTO `course_category` VALUES ('71', '硬件系统及原理', '6');
 
 -- ----------------------------
 -- Table structure for course_chapter
@@ -125,32 +119,29 @@ CREATE TABLE `course_chapter`  (
 -- ----------------------------
 -- Records of course_chapter
 -- ----------------------------
-INSERT INTO `course_chapter` VALUES ('1', '6', '0', '第1章 Java初体验', '本章节主要讲解 Java 目前的应用、如何搭建 Java 开发环境、以及如何使用工具进行 Java 程序的开发，为以后的学习打下基础', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('11', '6', '1', '1-1 Java简介', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('12', '6', '1', '1-2 Java开发环境搭建', NULL, '07:30', 'https://www.imooc.com/video/1459', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('13', '6', '1', '1-3 使用Eclipse开发Java程序', NULL, '08:59', 'https://www.imooc.com/video/1412', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('2', '6', '0', '第2章 变量和常量', '本章节主要讲解如何在 Java 程序中应用变量和常量进行数据操作、数据类型分类及基本数据类型间的类型转换，帮助你对 Java 语言建立初步认识', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('21', '6', '2', '2-1 Java中的关键字', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('22', '6', '2', '2-2 认识Java标识符', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('23', '6', '2', '2-3 Java中的数据类型', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('24', '6', '2', '2-4 Java中变量的使用规则', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('25', '6', '2', '2-5 Java中的自动类型转换', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('26', '6', '2', '2-6 Java中的强制类型转换', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('27', '6', '2', '2-7 Java常量的应用', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('28', '6', '2', '2-8 如何在Java中使用注释', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('3', '1', '0', '第1章 Java初体验', '本章节主要讲解 Java 目前的应用、如何搭建 Java 开发环境、以及如何使用工具进行 Java 程序的开发，为以后的学习打下基础', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('31', '1', '3', '1-1 Java简介', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('32', '1', '3', '1-2 Java开发环境搭建', NULL, '07:30', 'https://www.imooc.com/video/1459', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('33', '1', '3', '1-3 使用Eclipse开发Java程序', NULL, '08:59', 'https://www.imooc.com/video/1412', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('4', '1', '0', '第2章 变量和常量', '本章节主要讲解如何在 Java 程序中应用变量和常量进行数据操作、数据类型分类及基本数据类型间的类型转换，帮助你对 Java 语言建立初步认识', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('41', '1', '4', '2-1 Java中的关键字', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('42', '1', '4', '2-2 认识Java标识符', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('43', '1', '4', '2-3 Java中的数据类型', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('44', '1', '4', '2-4 Java中变量的使用规则', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('45', '1', '4', '2-5 Java中的自动类型转换', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('46', '1', '4', '2-6 Java中的强制类型转换', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('47', '1', '4', '2-7 Java常量的应用', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
-INSERT INTO `course_chapter` VALUES ('48', '1', '4', '2-8 如何在Java中使用注释', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('1', '101', '0', '第1章 Java初体验', '本章节主要讲解 Java 目前的应用、如何搭建 Java 开发环境、以及如何使用工具进行 Java 程序的开发，为以后的学习打下基础', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('11', '101', '1', '1-1 Java简介', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('12', '101', '1', '1-2 Java开发环境搭建', NULL, '07:30', 'https://www.imooc.com/video/1459', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('13', '101', '1', '1-3 使用Eclipse开发Java程序', NULL, '08:59', 'https://www.imooc.com/video/1412', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('2', '101', '0', '第2章 变量和常量', '本章节主要讲解如何在 Java 程序中应用变量和常量进行数据操作、数据类型分类及基本数据类型间的类型转换，帮助你对 Java 语言建立初步认识', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('21', '101', '2', '2-1 Java中的关键字', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('22', '101', '2', '2-2 认识Java标识符', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('23', '101', '2', '2-3 Java中的数据类型', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('24', '101', '2', '2-4 Java中变量的使用规则', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('25', '101', '2', '2-5 Java中的自动类型转换', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('26', '101', '2', '2-6 Java中的强制类型转换', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('27', '101', '2', '2-7 Java常量的应用', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('28', '101', '2', '2-8 如何在Java中使用注释', NULL, '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('3', '1', '0', '第1章 微型计算机基础', '第1章 微型计算机基础', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('31', '1', '3', '1.0 教学安排', '1.0 教学安排', '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('32', '1', '3', '1.1 发展概况', '1.1 发展概况', '07:30', 'https://www.imooc.com/video/1459', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('33', '1', '3', '1.2 硬件结构', '1.2 硬件结构', '08:59', 'https://www.imooc.com/video/1412', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('34', '1', '3', '1.3 数据表示', '1.3 数据表示', '08:59', 'https://www.imooc.com/video/1412', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('4', '1', '0', '第2章 微机处理器结构', '第2章 微机处理器结构', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('41', '1', '4', '2.1 32位处理器结构', '2.1 32位处理器结构', '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('42', '1', '4', '2.2  80X86CPU的结构', '2.2  80X86CPU的结构', '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('43', '1', '4', '2.3  80x86基本寄存器1', '2.3  80x86基本寄存器1', '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
+INSERT INTO `course_chapter` VALUES ('44', '1', '4', '2.4 80x86基本寄存器2', '2.4 80x86基本寄存器2', '05:49', 'https://www.imooc.com/video/1430', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for course_comment
@@ -174,13 +165,13 @@ CREATE TABLE `course_comment`  (
 -- ----------------------------
 -- Records of course_comment
 -- ----------------------------
-INSERT INTO `course_comment` VALUES ('1227783921161342976', NULL, '6', NULL, NULL, '唐小燕', 'if 后面没有 括号，则if 只包含下一行。 那这样这个 compare 函数，就有可能没有返回值。 在 11 行下面，再加一行 return true ; 即可。', NULL, '2020-03-15 09:49:25', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784338473619456', NULL, '6', NULL, NULL, '袁大哥', '这门课程感觉好流弊啊', NULL, '2020-03-15 09:49:27', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784387597307904', NULL, '6', NULL, NULL, '张超', '告诉大家一个白嫖的好方法，只要你用流量打开视频，注意！千万别点播放，完事点缓存再暂停，接着打开缓存页面用WiFi下载，看完删了就行，不仅不用投币点赞，甚至连播放量都不给[doge][doge][doge][doge]', NULL, '2020-03-15 09:49:30', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784456794935296', NULL, '6', NULL, NULL, '杨忠学', '纯路人，第一次下载这个软件，看到首页推荐了这个视频，这就是B站的氛围吗，i了i了。', NULL, '2020-03-15 09:49:32', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784934169645056', NULL, '6', NULL, NULL, '吴世龙', '这些片段当时是舞法天女新一季的其中一些片段，但由于被指抄袭和对儿童未来的发展和教育不利，所以被有关部门叫停制作并停止播放，我当时有幸看到过这些片段，如今能在这里看到，爷非常高兴', NULL, '2020-03-15 09:49:34', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784995272265728', NULL, '6', NULL, NULL, '谢鑫', '纯路人，以前一直听同学说b站很好，今天第一次下载来看了看，没想到刚一进入就发现了这个up的视频，这个up的视频质量是我从没见过的高。没想到，在当今这个浮躁的社会，竟然还能有人沉下心来做出一个个质量如此高的视频，泪目，白嫖了', NULL, '2020-03-14 22:10:38', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227848117488062464', NULL, '6', NULL, NULL, '朱兴', '投币啊 投币 这个币要怎么投呢？\n啊先点按钮啊 很简单很好投\n那我们来投一下\n投...啊好...\n哦还没投呢哈哈哈哈哈哈哈', NULL, '2020-03-14 22:10:37', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227783921161342976', NULL, '101', NULL, NULL, '唐小燕', 'if 后面没有 括号，则if 只包含下一行。 那这样这个 compare 函数，就有可能没有返回值。 在 11 行下面，再加一行 return true ; 即可。', NULL, '2020-03-15 09:49:25', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784338473619456', NULL, '101', NULL, NULL, '袁大哥', '这门课程感觉好流弊啊', NULL, '2020-03-15 09:49:27', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784387597307904', NULL, '101', NULL, NULL, '张超', '告诉大家一个白嫖的好方法，只要你用流量打开视频，注意！千万别点播放，完事点缓存再暂停，接着打开缓存页面用WiFi下载，看完删了就行，不仅不用投币点赞，甚至连播放量都不给[doge][doge][doge][doge]', NULL, '2020-03-15 09:49:30', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784456794935296', NULL, '101', NULL, NULL, '杨忠学', '纯路人，第一次下载这个软件，看到首页推荐了这个视频，这就是B站的氛围吗，i了i了。', NULL, '2020-03-15 09:49:32', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784934169645056', NULL, '101', NULL, NULL, '吴世龙', '这些片段当时是舞法天女新一季的其中一些片段，但由于被指抄袭和对儿童未来的发展和教育不利，所以被有关部门叫停制作并停止播放，我当时有幸看到过这些片段，如今能在这里看到，爷非常高兴', NULL, '2020-03-15 09:49:34', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784995272265728', NULL, '101', NULL, NULL, '谢鑫', '纯路人，以前一直听同学说b站很好，今天第一次下载来看了看，没想到刚一进入就发现了这个up的视频，这个up的视频质量是我从没见过的高。没想到，在当今这个浮躁的社会，竟然还能有人沉下心来做出一个个质量如此高的视频，泪目，白嫖了', NULL, '2020-03-14 22:10:38', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227848117488062464', NULL, '101', NULL, NULL, '朱兴', '投币啊 投币 这个币要怎么投呢？\n啊先点按钮啊 很简单很好投\n那我们来投一下\n投...啊好...\n哦还没投呢哈哈哈哈哈哈哈', NULL, '2020-03-14 22:10:37', NULL, NULL);
 INSERT INTO `course_comment` VALUES ('1235549250037878784', '1234119223710715904', '10', NULL, NULL, 'yh', 'nb?', NULL, '2020-03-14 22:10:32', NULL, NULL);
 INSERT INTO `course_comment` VALUES ('1237304999965495296', '1234119223710715901', '1', NULL, NULL, 'admin', '666', NULL, '2020-03-15 09:55:12', NULL, NULL);
 INSERT INTO `course_comment` VALUES ('1237304999965495297', NULL, '1', NULL, NULL, '222', '3333', NULL, NULL, NULL, NULL);
@@ -311,10 +302,10 @@ CREATE TABLE `course_video`  (
 -- ----------------------------
 -- Records of course_video
 -- ----------------------------
-INSERT INTO `course_video` VALUES ('1241306892081434624', '1', '3', '教学安排', '第1章 Java初体验 -教学安排', NULL, NULL, '微机原理与接口技术_1.0 教学安排-1241306892081434624.mp4', 'http://localhost:9000/resource/download/1241306892081434624', NULL, NULL, NULL, NULL);
-INSERT INTO `course_video` VALUES ('1241314308391047168', '1', '31', '发展概况', '1-1 Java简介', NULL, NULL, '微机原理与接口技术_1.1 发展概况-1241314308391047168.mp4', 'http://localhost:9000/resource/download/1241314308391047168', NULL, NULL, NULL, NULL);
-INSERT INTO `course_video` VALUES ('1241314434794786816', '1', '32', '硬件结构', '1-2 Java开发环境搭建', NULL, NULL, '微机原理与接口技术_1.2 硬件结构-1241314434794786816.mp4', 'http://localhost:9000/resource/download/1241314434794786816', NULL, NULL, NULL, NULL);
-INSERT INTO `course_video` VALUES ('1241314549378977792', '1', '33', '数据表示', '1-3 使用Eclipse开发Java程序', NULL, NULL, '微机原理与接口技术_1.3 数据表示-1241314549378977792.mp4', 'http://localhost:9000/resource/download/1241314549378977792', NULL, NULL, NULL, NULL);
+INSERT INTO `course_video` VALUES ('1241306892081434624', '1', '31', '教学安排', '1.0 教学安排', NULL, NULL, '微机原理与接口技术_1.0 教学安排-1241306892081434624.mp4', 'http://localhost:9000/resource/download/1241306892081434624', NULL, NULL, NULL, NULL);
+INSERT INTO `course_video` VALUES ('1241314308391047168', '1', '32', '发展概况', '1.1 发展概况', NULL, NULL, '微机原理与接口技术_1.1 发展概况-1241314308391047168.mp4', 'http://localhost:9000/resource/download/1241314308391047168', NULL, NULL, NULL, NULL);
+INSERT INTO `course_video` VALUES ('1241314434794786816', '1', '33', '硬件结构', '1.2 硬件结构', NULL, NULL, '微机原理与接口技术_1.2 硬件结构-1241314434794786816.mp4', 'http://localhost:9000/resource/download/1241314434794786816', NULL, NULL, NULL, NULL);
+INSERT INTO `course_video` VALUES ('1241314549378977792', '1', '34', '数据表示', '1.3 数据表示', NULL, NULL, '微机原理与接口技术_1.3 数据表示-1241314549378977792.mp4', 'http://localhost:9000/resource/download/1241314549378977792', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for permission
@@ -335,6 +326,7 @@ CREATE TABLE `permission`  (
 -- Records of permission
 -- ----------------------------
 INSERT INTO `permission` VALUES ('1', 'add', '添加', NULL, NULL, NULL, NULL);
+INSERT INTO `permission` VALUES ('1249183755965435904', 's_user_edit', '用户信息编辑', NULL, NULL, NULL, NULL);
 INSERT INTO `permission` VALUES ('2', 'edit', '编辑', NULL, NULL, NULL, NULL);
 INSERT INTO `permission` VALUES ('3', 'del', '删除', NULL, NULL, NULL, NULL);
 INSERT INTO `permission` VALUES ('4', 'upload', '上传', NULL, NULL, NULL, NULL);
@@ -388,6 +380,7 @@ INSERT INTO `role_permission` VALUES ('12', '1', '3', NULL, NULL, NULL, NULL);
 INSERT INTO `role_permission` VALUES ('1238360430200623104', '4', '2', NULL, NULL, NULL, NULL);
 INSERT INTO `role_permission` VALUES ('1238360432830451712', '4', '4', NULL, NULL, NULL, NULL);
 INSERT INTO `role_permission` VALUES ('1238360435636441088', '4', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `role_permission` VALUES ('1249183804451590144', '5', '1249183755965435904', NULL, NULL, NULL, NULL);
 INSERT INTO `role_permission` VALUES ('13', '1', '4', NULL, NULL, NULL, NULL);
 INSERT INTO `role_permission` VALUES ('14', '1', '5', NULL, NULL, NULL, NULL);
 INSERT INTO `role_permission` VALUES ('20', '2', '1', NULL, NULL, NULL, NULL);
@@ -437,8 +430,8 @@ INSERT INTO `user` VALUES ('1234119223710715901', 'admin', '$2a$10$ogqzDygYCQ72K
 INSERT INTO `user` VALUES ('1234119223710715902', 'dev', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '开发人员', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
 INSERT INTO `user` VALUES ('1234119223710715903', 'test', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '测试', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-07 17:44:21', '2020-03-07 17:44:21', '2020-03-07 17:44:21', 0, NULL, NULL, 0, 0);
 INSERT INTO `user` VALUES ('1234119223710715904', 'teacher', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '教师', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1234119223710715905', 'student', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '学生', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1237767310413008896', 'wcndy', '$2a$10$lm1OcRGu76rQCSr1I6X2Peh3W5nDdz5VGm1oLhj9VkWtP5iYabbOK', '17738285197', '我问候你大爷', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715905', 'student', '$2a$10$jrxbLUtkBTVi25ud3cj36uD31l1i4z0Ud0R4.e6HYYDs7aTrTc6D.', '18608212510', '好学生', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1237767310413008896', 'wcndy', '$2a$10$QUKcj/BqEx4l9WDn/hr3NOsF9fkOYAi9Y8EdHCBLCiFNbm.vKjwQ.', '17738285197', '我问候你', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
 
 -- ----------------------------
 -- Table structure for user_course
@@ -463,6 +456,7 @@ CREATE TABLE `user_course`  (
 -- ----------------------------
 INSERT INTO `user_course` VALUES ('1235173074094133248', '1234119223710715904', '17', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user_course` VALUES ('1235173104976793600', '1234119223710715904', '6', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user_course` VALUES ('1249195175620775936', '1234119223710715905', '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user_favorite
@@ -489,8 +483,9 @@ INSERT INTO `user_favorite` VALUES ('1235212375473393664', '1234119223710715904'
 INSERT INTO `user_favorite` VALUES ('1235212392607125504', '1234119223710715904', '11', NULL, '课程', NULL, NULL, NULL, NULL);
 INSERT INTO `user_favorite` VALUES ('1235396122328043520', '1234119223710715904', NULL, '21', '试题', NULL, NULL, NULL, NULL);
 INSERT INTO `user_favorite` VALUES ('1235399626295742464', '1234119223710715904', '18', NULL, '课程', NULL, NULL, NULL, NULL);
-INSERT INTO `user_favorite` VALUES ('1237305258628222976', '1234119223710715901', '6', NULL, '课程', NULL, NULL, NULL, NULL);
+INSERT INTO `user_favorite` VALUES ('1237305258628222976', '1234119223710715901', '101', NULL, '课程', NULL, NULL, NULL, NULL);
 INSERT INTO `user_favorite` VALUES ('1243814628887236608', '1234119223710715901', '1', NULL, '课程', NULL, NULL, NULL, NULL);
+INSERT INTO `user_favorite` VALUES ('1247058958401802240', '1234119223710715905', '1', NULL, '课程', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -511,7 +506,6 @@ CREATE TABLE `user_role`  (
 -- Records of user_role
 -- ----------------------------
 INSERT INTO `user_role` VALUES ('1238132438434189312', '1234119223710715901', '1', NULL, NULL, NULL, NULL);
-INSERT INTO `user_role` VALUES ('1238305620101304320', '1238305231960412160', '1238305585934503936', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238347522087456768', '1234119223710715901', '2', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238347523530297344', '1234119223710715901', '3', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238360174201278464', '1234119223710715902', '2', NULL, NULL, NULL, NULL);
@@ -520,5 +514,32 @@ INSERT INTO `user_role` VALUES ('1238360197517414400', '1234119223710715903', '3
 INSERT INTO `user_role` VALUES ('1238360218300190720', '1234119223710715904', '4', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238360238101499904', '1234119223710715905', '5', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238360290769375232', '1237767310413008896', '6', NULL, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Procedure structure for pre
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pre`;
+delimiter ;;
+CREATE PROCEDURE `pre`()
+begin
+declare n int default 1;
+	
+  while n < 100000 do
+     if n%3 = 0 then
+         insert into test values (n, null);
+				 	end if;
+    if n%3 = 1 then
+        insert into test values (n, CONCAT(n));
+					end if;
+    if n%3 = 2 then
+        insert into test values (n, 'this is text');
+				end if;
+    set n = n+1;
+		
+ end while;
+ 
+ end
+;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;
