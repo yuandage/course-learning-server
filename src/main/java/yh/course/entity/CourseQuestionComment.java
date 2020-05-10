@@ -14,7 +14,7 @@ public class CourseQuestionComment {
 	private String userId;//用户id
 	private String courseId;//课程id
 	private String questionId;//试题id
-	private String username;//用户名
+	private String nickname;//用户名
 	private String content;//评论内容
 	private String createUser;//创建人
 	private Date createTime;//创建时间
@@ -53,12 +53,12 @@ public class CourseQuestionComment {
 		this.questionId = questionId;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getContent() {

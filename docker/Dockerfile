@@ -2,7 +2,8 @@
 # VERSION 1.0.0
 # Author: yuanhong
 # 基础镜像使用java
-FROM java:8
+#FROM java:8
+FROM registry.cn-chengdu.aliyuncs.com/yh-dcoker/yh:8_server-jre_unlimited
 MAINTAINER yuanhong <1027928543@qq.com>
 VOLUME /tmp
 ARG profile=prod

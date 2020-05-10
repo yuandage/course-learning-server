@@ -37,7 +37,7 @@ public class CourseQuestionCommentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    @PreAuthorize("hasAnyRole('admin','dev','test','teacher')")
+    @PreAuthorize("hasAuthority('add')")
     public Result save(@RequestBody CourseQuestionComment courseQuestionComment) {
         courseQuestionCommentService.save(courseQuestionComment);
         return new Result(true, StatusCode.SUCCESS, "添加成功");

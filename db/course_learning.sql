@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 12/04/2020 22:43:21
+ Date: 10/05/2020 17:54:55
 */
 
 SET NAMES utf8mb4;
@@ -153,7 +153,7 @@ CREATE TABLE `course_comment`  (
   `course_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '课程id',
   `section_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '章节id',
   `section_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '章节标题',
-  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
+  `nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `create_user` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间 ',
@@ -165,16 +165,24 @@ CREATE TABLE `course_comment`  (
 -- ----------------------------
 -- Records of course_comment
 -- ----------------------------
-INSERT INTO `course_comment` VALUES ('1227783921161342976', NULL, '101', NULL, NULL, '唐小燕', 'if 后面没有 括号，则if 只包含下一行。 那这样这个 compare 函数，就有可能没有返回值。 在 11 行下面，再加一行 return true ; 即可。', NULL, '2020-03-15 09:49:25', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784338473619456', NULL, '101', NULL, NULL, '袁大哥', '这门课程感觉好流弊啊', NULL, '2020-03-15 09:49:27', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784387597307904', NULL, '101', NULL, NULL, '张超', '告诉大家一个白嫖的好方法，只要你用流量打开视频，注意！千万别点播放，完事点缓存再暂停，接着打开缓存页面用WiFi下载，看完删了就行，不仅不用投币点赞，甚至连播放量都不给[doge][doge][doge][doge]', NULL, '2020-03-15 09:49:30', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784456794935296', NULL, '101', NULL, NULL, '杨忠学', '纯路人，第一次下载这个软件，看到首页推荐了这个视频，这就是B站的氛围吗，i了i了。', NULL, '2020-03-15 09:49:32', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784934169645056', NULL, '101', NULL, NULL, '吴世龙', '这些片段当时是舞法天女新一季的其中一些片段，但由于被指抄袭和对儿童未来的发展和教育不利，所以被有关部门叫停制作并停止播放，我当时有幸看到过这些片段，如今能在这里看到，爷非常高兴', NULL, '2020-03-15 09:49:34', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227784995272265728', NULL, '101', NULL, NULL, '谢鑫', '纯路人，以前一直听同学说b站很好，今天第一次下载来看了看，没想到刚一进入就发现了这个up的视频，这个up的视频质量是我从没见过的高。没想到，在当今这个浮躁的社会，竟然还能有人沉下心来做出一个个质量如此高的视频，泪目，白嫖了', NULL, '2020-03-14 22:10:38', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1227848117488062464', NULL, '101', NULL, NULL, '朱兴', '投币啊 投币 这个币要怎么投呢？\n啊先点按钮啊 很简单很好投\n那我们来投一下\n投...啊好...\n哦还没投呢哈哈哈哈哈哈哈', NULL, '2020-03-14 22:10:37', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1235549250037878784', '1234119223710715904', '10', NULL, NULL, 'yh', 'nb?', NULL, '2020-03-14 22:10:32', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1237304999965495296', '1234119223710715901', '1', NULL, NULL, 'admin', '666', NULL, '2020-03-15 09:55:12', NULL, NULL);
-INSERT INTO `course_comment` VALUES ('1237304999965495297', NULL, '1', NULL, NULL, '222', '3333', NULL, NULL, NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227783921161342976', '1237767310413008897', '101', NULL, NULL, '唐小燕', 'if 后面没有 括号，则if 只包含下一行。 那这样这个 compare 函数，就有可能没有返回值。 在 11 行下面，再加一行 return true ; 即可。', NULL, '2020-03-15 09:49:25', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784338473619456', '1259385159078252544', '101', NULL, NULL, '袁洪', '这门课程感觉好流弊啊', NULL, '2020-03-15 09:49:27', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784387597307904', '1259385159078252545', '101', NULL, NULL, '张超', '告诉大家一个白嫖的好方法，只要你用流量打开视频，注意！千万别点播放，完事点缓存再暂停，接着打开缓存页面用WiFi下载，看完删了就行，不仅不用投币点赞，甚至连播放量都不给[doge][doge][doge][doge]', NULL, '2020-03-15 09:49:30', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784456794935296', '1259385159078252546', '101', NULL, NULL, '杨忠学', '纯路人，第一次下载这个软件，看到首页推荐了这个视频，这就是B站的氛围吗，i了i了。', NULL, '2020-03-15 09:49:32', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784934169645056', '1259385159078252547', '101', NULL, NULL, '吴世龙', '这些片段当时是舞法天女新一季的其中一些片段，但由于被指抄袭和对儿童未来的发展和教育不利，所以被有关部门叫停制作并停止播放，我当时有幸看到过这些片段，如今能在这里看到，爷非常高兴', NULL, '2020-03-15 09:49:34', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227784995272265728', '1259385159078252548', '101', NULL, NULL, '谢鑫', '纯路人，以前一直听同学说b站很好，今天第一次下载来看了看，没想到刚一进入就发现了这个up的视频，这个up的视频质量是我从没见过的高。没想到，在当今这个浮躁的社会，竟然还能有人沉下心来做出一个个质量如此高的视频，泪目，白嫖了', NULL, '2020-03-14 22:10:38', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1227848117488062464', '1259385159078252549', '101', NULL, NULL, '朱兴', '投币啊 投币 这个币要怎么投呢？\n啊先点按钮啊 很简单很好投\n那我们来投一下\n投...啊好...\n哦还没投呢哈哈哈哈哈哈哈', NULL, '2020-03-14 22:10:37', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1235549250037878784', '1259385159078252544', '10', NULL, NULL, '袁洪', 'nb?', NULL, '2020-03-14 22:10:32', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495296', '1234119223710715901', '1', NULL, NULL, '超管', '666', NULL, '2020-03-15 09:55:12', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495297', '1259385159078252550', '1', NULL, NULL, '张智毅', '我去怎么牛逼的吗?', NULL, NULL, NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495298', '1237767310413008897', '1', NULL, NULL, '唐小燕', 'if 后面没有 括号，则if 只包含下一行。 那这样这个 compare 函数，就有可能没有返回值。 在 11 行下面，再加一行 return true ; 即可。', NULL, '2020-03-15 09:49:25', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495299', '1259385159078252544', '1', NULL, NULL, '袁洪', '这门课程感觉好流弊啊', NULL, '2020-03-15 09:49:27', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495300', '1259385159078252545', '1', NULL, NULL, '张超', '告诉大家一个白嫖的好方法，只要你用流量打开视频，注意！千万别点播放，完事点缓存再暂停，接着打开缓存页面用WiFi下载，看完删了就行，不仅不用投币点赞，甚至连播放量都不给[doge][doge][doge][doge]', NULL, '2020-03-15 09:49:30', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495301', '1259385159078252546', '1', NULL, NULL, '杨忠学', '纯路人，第一次下载这个软件，看到首页推荐了这个视频，这就是B站的氛围吗，i了i了。', NULL, '2020-03-15 09:49:32', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495302', '1259385159078252547', '1', NULL, NULL, '吴世龙', '这些片段当时是舞法天女新一季的其中一些片段，但由于被指抄袭和对儿童未来的发展和教育不利，所以被有关部门叫停制作并停止播放，我当时有幸看到过这些片段，如今能在这里看到，爷非常高兴', NULL, '2020-03-15 09:49:34', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495303', '1259385159078252548', '1', NULL, NULL, '谢鑫', '纯路人，以前一直听同学说b站很好，今天第一次下载来看了看，没想到刚一进入就发现了这个up的视频，这个up的视频质量是我从没见过的高。没想到，在当今这个浮躁的社会，竟然还能有人沉下心来做出一个个质量如此高的视频，泪目，白嫖了', NULL, '2020-03-14 22:10:38', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495304', '1259385159078252549', '1', NULL, NULL, '朱兴', '投币啊 投币 这个币要怎么投呢？\n啊先点按钮啊 很简单很好投\n那我们来投一下\n投...啊好...\n哦还没投呢哈哈哈哈哈哈哈', NULL, '2020-03-14 22:10:37', NULL, NULL);
+INSERT INTO `course_comment` VALUES ('1237304999965495305', '1259385159078252544', '1', NULL, NULL, '袁洪', 'nb?', NULL, '2020-03-14 22:10:32', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for course_question
@@ -230,7 +238,7 @@ CREATE TABLE `course_question_comment`  (
   `user_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户id',
   `course_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '课程id',
   `question_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '试题id',
-  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
+  `nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户昵称',
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论内容',
   `create_user` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间 ',
@@ -242,12 +250,12 @@ CREATE TABLE `course_question_comment`  (
 -- ----------------------------
 -- Records of course_question_comment
 -- ----------------------------
-INSERT INTO `course_question_comment` VALUES ('1235559357018673152', '1234119223710715904', '1', '1', 'yh', '666', NULL, NULL, NULL, NULL);
-INSERT INTO `course_question_comment` VALUES ('1235559357018673153', '1234119223710715904', '1', '1', 'yh', '666', NULL, NULL, NULL, NULL);
-INSERT INTO `course_question_comment` VALUES ('1235559357018673154', '1234119223710715904', '1', '1', 'yh', '666', NULL, NULL, NULL, NULL);
-INSERT INTO `course_question_comment` VALUES ('1235559436815306752', '1234119223710715904', '1', '1', 'yh', '这么牛逼的吗', NULL, NULL, NULL, NULL);
-INSERT INTO `course_question_comment` VALUES ('1235559516536442880', '1234119223710715904', '1', '1', 'yh', '这道题要怎么做?', NULL, NULL, NULL, NULL);
-INSERT INTO `course_question_comment` VALUES ('1235571165540519936', '1234119223710715904', '1', '9', 'yh', '这道题怎么做啊?', NULL, NULL, NULL, NULL);
+INSERT INTO `course_question_comment` VALUES ('1235559357018673152', '1259385159078252545', '1', '1', '张超', '666', NULL, NULL, NULL, NULL);
+INSERT INTO `course_question_comment` VALUES ('1235559357018673153', '1259385159078252546', '1', '1', '杨忠学', '666', NULL, NULL, NULL, NULL);
+INSERT INTO `course_question_comment` VALUES ('1235559357018673154', '1259385159078252547', '1', '1', '吴世龙', '666', NULL, NULL, NULL, NULL);
+INSERT INTO `course_question_comment` VALUES ('1235559436815306752', '1259385159078252548', '1', '1', '谢鑫', '这么牛逼的吗', NULL, NULL, NULL, NULL);
+INSERT INTO `course_question_comment` VALUES ('1235559516536442880', '1259385159078252549', '1', '1', '朱兴', '这道题要怎么做?', NULL, NULL, NULL, NULL);
+INSERT INTO `course_question_comment` VALUES ('1235571165540519936', '1259385159078252550', '1', '9', '张智毅', '这道题怎么做啊?', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for course_resource
@@ -418,8 +426,8 @@ CREATE TABLE `user`  (
   `online` bigint(20) NULL DEFAULT NULL COMMENT '在线时长（分钟）',
   `interest` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '兴趣',
   `personality` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '个性',
-  `fans_count` int(20) NULL DEFAULT NULL COMMENT '粉丝数',
-  `follow_count` int(20) NULL DEFAULT NULL COMMENT '关注数',
+  `fans_count` int(11) NULL DEFAULT NULL COMMENT '粉丝数',
+  `follow_count` int(11) NULL DEFAULT NULL COMMENT '关注数',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户' ROW_FORMAT = Dynamic;
 
@@ -430,8 +438,16 @@ INSERT INTO `user` VALUES ('1234119223710715901', 'admin', '$2a$10$ogqzDygYCQ72K
 INSERT INTO `user` VALUES ('1234119223710715902', 'dev', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '开发人员', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
 INSERT INTO `user` VALUES ('1234119223710715903', 'test', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '测试', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-07 17:44:21', '2020-03-07 17:44:21', '2020-03-07 17:44:21', 0, NULL, NULL, 0, 0);
 INSERT INTO `user` VALUES ('1234119223710715904', 'teacher', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '教师', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1234119223710715905', 'student', '$2a$10$jrxbLUtkBTVi25ud3cj36uD31l1i4z0Ud0R4.e6HYYDs7aTrTc6D.', '18608212510', '好学生', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
-INSERT INTO `user` VALUES ('1237767310413008896', 'wcndy', '$2a$10$QUKcj/BqEx4l9WDn/hr3NOsF9fkOYAi9Y8EdHCBLCiFNbm.vKjwQ.', '17738285197', '我问候你', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1234119223710715905', 'student', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '18608212510', '好学生', '男', NULL, NULL, '1027928543@qq.com', '2020-03-01 22:12:07', '2020-03-01 22:12:07', '2020-03-01 22:12:07', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1237767310413008896', 'wcndy', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '我问候你', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1237767310413008897', 'txy', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '唐小燕', NULL, NULL, 'https://lokeshdhakar.com/projects/lightbox2/images/thumb-4.jpg', '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252544', 'yh', '$2a$10$D2cDf1UmxGJ/6as67Xiureb.Jpr.7tNyxKzl59GdOFs0WCFyXsfc.', '18608212510', '袁洪', NULL, NULL, NULL, '1027928543@qq.com', '2020-05-10 07:29:55', '2020-05-10 07:29:55', '2020-05-10 07:29:55', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252545', 'zc', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '张超', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252546', 'yzx', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '杨忠学', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252547', 'wsl', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '吴世龙', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252548', 'xx', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '谢鑫', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252549', 'zx', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '朱兴', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
+INSERT INTO `user` VALUES ('1259385159078252550', 'zzy', '$2a$10$ogqzDygYCQ72KhHw5lblpubKVenDHR8e6wbZDa7/lX/tSmRSajOd.', '17738285197', '张智毅', NULL, NULL, NULL, '1027928543@qq.com', '2020-03-11 23:48:18', '2020-03-11 23:48:18', '2020-03-11 23:48:18', 0, NULL, NULL, 0, 0);
 
 -- ----------------------------
 -- Table structure for user_course
@@ -514,6 +530,14 @@ INSERT INTO `user_role` VALUES ('1238360197517414400', '1234119223710715903', '3
 INSERT INTO `user_role` VALUES ('1238360218300190720', '1234119223710715904', '4', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238360238101499904', '1234119223710715905', '5', NULL, NULL, NULL, NULL);
 INSERT INTO `user_role` VALUES ('1238360290769375232', '1237767310413008896', '6', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386462512746496', '1259385159078252550', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386484331515904', '1259385159078252549', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386504086687744', '1259385159078252548', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386537611759616', '1259385159078252547', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386574018318336', '1259385159078252546', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386591944773632', '1259385159078252545', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386606700335104', '1259385159078252544', '5', NULL, NULL, NULL, NULL);
+INSERT INTO `user_role` VALUES ('1259386622705799168', '1237767310413008897', '5', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Procedure structure for pre
