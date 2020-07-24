@@ -4,7 +4,8 @@ target/
 !**/src/main/**
 src/test/**
 docker/*.jar
-logs
+docker/file
+file
 
 ### STS ###
 .apt_generated
@@ -32,5 +33,3 @@ build/
 ### VS Code ###
 .vscode/
 
-src/main/resources/course-resource/**
-src/main/resources/course-video/**

@@ -1,8 +1,8 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://172.17.0.3:3306/course_learning?characterEncoding=utf-8
-    url: jdbc:mysql://192.168.1.10:3306/course_learning?characterEncoding=utf-8
+    url: jdbc:mysql://18.162.58.101:3306/course_learning?characterEncoding=utf-8
+#    url: jdbc:mysql://192.168.1.10:3306/course_learning?characterEncoding=utf-8
     username: root
     password: 123456
   jpa:

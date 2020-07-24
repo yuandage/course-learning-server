@@ -59,6 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/user/login", "/user/adminLogin", "/user/register").permitAll()
 				// 视频播放
 				.antMatchers("/video/play").permitAll()
+				//资料下载
+				.antMatchers("/resource/download/**").permitAll()
+				//视频下载
+				.antMatchers("/video/download/**").permitAll()
 				//首页需要的数据
 				.antMatchers(HttpMethod.GET, "/course/**", "/category/**").permitAll()
 				// swagger
